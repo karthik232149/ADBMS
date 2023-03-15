@@ -1,0 +1,13 @@
+ Create a table EMPLOYEE have the following fields (emp_id, name,city,dob,adhar_no) 
+QUERY:
+ CREATE TABLE EMPLOYEE(emp_id INT,name VARCHAR(20),city VARCHAR(50),dob INT,adhar_no INT);
+OUTPUT:
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| emp_id   | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
+| city     | varchar(50) | YES  |     | NULL    |       |
+| dob      | int(11)     | YES  |     | NULL    |       |
+| adhar_no | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
