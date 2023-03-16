@@ -1,4 +1,5 @@
- Experiment 1.1   
+ Experiment 1.1  : DDL COMMANDS
+ ******************************
 a)DDL COMMANDS - CREATE  
 1.Create a table EMPLOYEE have the following fields (emp_id, name,city,dob,adhar_no)
  
@@ -323,5 +324,5 @@ mysql> desc invoice_item;
 3 rows in set (0.00 sec)
 
 
-
+//RESUBMISSION
 
