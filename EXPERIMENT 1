@@ -134,12 +134,12 @@ mysql> desc invoice_master;
 +----------+---------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-d)mysql> create table invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references invoice_master(inv_id),foreign key(pid) references Product(pid));
+d)mysql> create tabledesc invoice_item; invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references invoice_master(inv_id),foreign key(pid) references Product(pid));
 Query OK, 0 rows affected (0.24 sec)
 
 mysql> desc invoice_item;
 +----------+---------+------+-----+---------+-------+
-| Field    | Type    | Null | Key | Default | Extra |
+| Field    | Type    desc invoice_item;| Null | Key | Default | Extra |
 +----------+---------+------+-----+---------+-------+
 | inv_id   | int(11) | YES  | MUL | NULL    |       |
 | pid      | int(11) | YES  | MUL | NULL    |       |
@@ -147,19 +147,10 @@ mysql> desc invoice_item;
 +----------+---------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-
-mysql> desc invoice_item;
-+----------+---------+------+-----+---------+-------+
-| Field    | Type    | Null | Key | Default | Extra |
-+----------+---------+------+-----+---------+-------+
-| inv_id   | int(11) | YES  | MUL | NULL    |       |
-| pid      | int(11) | YES  | MUL | NULL    |       |
-| quantity | int(11) | YES  |     | NULL    |       |
-+----------+---------+------+-----+---------+-------+
-3 rows in set (0.00 sec)
 
 -+------+-----+---------+-------+
-5 rows in set (0.00 sec)
+
+
 
 //RESUBMISSION
 
