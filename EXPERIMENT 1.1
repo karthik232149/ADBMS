@@ -47,6 +47,7 @@ Query OK, 0 rows affected (0.00 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
 mysql> desc STUDENT1;
+
 +---------+-------------+------+-----+---------+-------+
 | Field   | Type        | Null | Key | Default | Extra |
 +---------+-------------+------+-----+---------+-------+
@@ -55,12 +56,10 @@ mysql> desc STUDENT1;
 | age     | int(11)     | NO   |     | NULL    |       |
 | address | varchar(25) | YES  |     | NULL    |       |
 | gender  | varchar(20) | YES  |     | m       |       |
-+---------+---------1----+------+-----+---------+-------+
++---------+-------------+------+-----+---------+-------+
 5 rows in set (0.00 sec)
 
- 
- 
- 4.Create a duplicate table of EMPLOYEE.
+  4.Create a duplicate table of EMPLOYEE.
  
    mysql> create table if not exists EMPLOYEE_DUP select * from EMPLOYEE;
 Query OK, 0 rows affected (0.18 sec)
@@ -72,12 +71,13 @@ Records: 0  Duplicates: 0  Warnings: 0
 +----------+-------------+------+-----+---------+-------+
 | emp_id   | int(11)     | YES  |     | NULL    |       |
 | name     | varchar(25) | YES  |     | NULL    |       |
-| city     | varchar1(50) | YES  |     | NULL    |       |
+| city     | varchar(50) | YES  |     | NULL    |       |
 | dob      | date        | YES  |     | NULL    |       |
-| adhar_no | int(11)     | YES  |     | NULL    |       |
+|aadhar_no | int(11)     | YES  |     | NULL    |       |
 +----------+-------------+------+-----+---------+-------+
-5 rows in set (0.00 sec
-
+5 rows in set (0.00 sec)
+ 
+ 
 5. Create an INVOICE database and having following tables.
 
    a)Customer(id, name, address, city, ph_no)
@@ -92,7 +92,7 @@ Records: 0  Duplicates: 0  Warnings: 0
    mysql> use INVOICE;
 Database changed
 
-a)mysql> create tabl1e Customer(id int primary key,name varchar(20),address varchar
+a)mysql> create table Customer(id int primary key,name varchar(20),address varchar
 (20),city varchar(20),ph_no varchar(20));
 Query OK, 0 rows affected (0.19 sec)
 
@@ -108,7 +108,7 @@ mysql> desc Customer;
 +---------+-------------+------+-----+---------+-------+
 5 rows in set (0.01 sec)
 
-b)mysql> create tabl1e Product(pid int primary key,pname varchar(20),price int default 0);
+b)mysql> create table Product(pid int primary key,pname varchar(20),price int default 0);
 Query OK, 0 rows affected (0.19 sec)
 
 mysql> desc Product;
@@ -125,7 +125,7 @@ c)mysql> create table invoice_master(inv_id int primary key,id int,inv_date date
 Query OK, 0 rows affected (0.20 sec)
 
 mysql> desc invoice_master;
-+----------+--------1-+------+-----+---------+-------+
++----------+---------+------+-----+---------+-------+
 | Field    | Type    | Null | Key | Default | Extra |
 +----------+---------+------+-----+---------+-------+
 | inv_id   | int(11) | NO   | PRI | NULL    |       |
@@ -133,23 +133,19 @@ mysql> desc invoice_master;
 | inv_date | date    | YES  |     | NULL    |       |
 +----------+---------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
-1
-d)mysql> create tabl1edesc invoice_item; invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references invoice_master(inv_id),foreign key(pid) references Product(pid));
+
+d)mysql> create table invoice_item(inv_id int,pid int,quantity int,foreign key(inv_id) references invoice_master(inv_id),foreign key(pid) references Product(pid));
 Query OK, 0 rows affected (0.24 sec)
 
 mysql> desc invoice_item;
 +----------+---------+------+-----+---------+-------+
-| Field    | Type    desc invoice_item;| Null | Key | Default | Extra |
+| Field    | Type    | Null | Key | Default | Extra |
 +----------+---------+------+-----+---------+-------+
 | inv_id   | int(11) | YES  | MUL | NULL    |       |
 | pid      | int(11) | YES  | MUL | NULL    |       |
 | quantity | int(11) | YES  |     | NULL    |       |
 +----------+---------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
-
-
--+------+-----+---------+-------+
-
 
 
 //RESUBMISSION
