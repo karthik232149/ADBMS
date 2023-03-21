@@ -1,7 +1,38 @@
 EXPERIMENT 1.2 DML COMMANDS 
  a) 1.Insert values in EMPLOYEE table.
-DML COMMANDS-INSERT
-mysql> insert into PERSON values(1,'KARTHIK','MALAPPURAM',2001,4569),(2,'HARIKRISHNAN','MANNARKKAD',2001,5620),(3,'MINHAJ','MANJERI',1999,7893),(4,'VYSHNAV','ANGADIPPURAM',2000,6745);
+DMmysql> insert into PERSON values(1,'KARTHIK','MALAPPURAM',2001,456965432457),(2,'HARIKRISHNAN','MANNARKKAD',2001,562069842356),(3,'MINHAJ','MANJERI',1999,789324456245),(4,'VYSHNAV','ANGADIPPURAM',2000,674559563457);
 Query OK, 4 rows affected (0.04 sec)
 Records: 4  Duplicates: 0  Warnings: 0
+
 mysql> SELECT * FROM PERSON;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
++------+--------------+--------------+------+--------------+
+4 rows in set (0.00 sec)
+
+
+
+2.Insert values in STUDENT table.
+mysql> ALTER TABLE PERSON modify aadhar_no bigint;
+Query OK, 0 rows affected (0.82 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  insert into STUDENT values(1,'karthik',21,'kannanthodi House','m'),(2,'harikrishnan',21,'sundhara bhavanam House','m'),(3,'Vyshnav',22,'karthika House','m'),(4,'Aliya',22,'mohabath manzil  House','f');
+Query OK, 4 rows affected (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM STUDENT;
++---------+--------------+------+-------------------------+--------+
+| roll_no | name         | age  | address                 | gender |
++---------+--------------+------+-------------------------+--------+
+|       1 | karthik      |   21 | kannanthodi House       | m      |
+|       2 | harikrishnan |   21 | sundhara bhavanam House | m      |
+|       3 | Vyshnav      |   22 | karthika House          | m      |
+|       4 | Aliya        |   22 | mohabath manzil  House  | f      |
++---------+--------------+------+-------------------------+--------+
+4 rows in set (0.00 sec)
