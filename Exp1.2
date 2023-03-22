@@ -36,3 +36,416 @@ mysql> SELECT * FROM STUDENT;
 |       4 | Aliya        |   22 | mohabath manzil  House  | f      |
 +---------+--------------+------+-------------------------+--------+
 4 rows in set (0.00 sec)
+
+
+3.Insert values in INVOICE database. 
+
+mysql> USE INVOICE;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+->Customer table
+----------------
+
+INSERT INTO customer  VALUES(100,"Hari","Kurupputhodyil House","Mannarkkad",9025487910);
+Query OK, 1 row affected (0.06 sec)
+ 
+mysql> INSERT INTO customer(id,name,address,city)  VALUES(101,"Karthik","Kannanthodi House","Perinthalmanna");
+Query OK, 1 row affected (0.05 sec)
+ 
+mysql> INSERT INTO customer  VALUES(102,"Vyshnav","Karthika House","perinthalmanna",9539963457);
+Query OK, 1 row affected (0.05 sec)
+ 
+mysql> INSERT INTO customer(id,name,address,city)  VALUES(103,"Maanas","Villa House","Kozhikode");
+Query OK, 1 row affected (0.04 sec)
+ 
+mysql> INSERT INTO customer(id,name,address,city)  VALUES(104,"Minhaj","Vallyaveetil House","Malappuram");
+Query OK, 1 row affected (0.04 sec)
+ 
+mysql> INSERT INTO customer  VALUES(105,"Minhaj","Dreams House","Malappuram",8086909478);
+Query OK, 1 row affected (0.05 sec)
+ 
+mysql> INSERT INTO customer  VALUES(106,"Vishnu","Vishnuvilasam House","Wayanad",7854328521);
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> select * from customer;
++-----+---------+----------------------+----------------+------------+
+| id  | name    | address              | city           | ph_no      |
++-----+---------+----------------------+----------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad     | 9025487910 |
+| 101 | Karthik | Kannanthodi House    | Perinthalmanna |       NULL |
+| 102 | Vyshnav | Karthika House       | perinthalmanna | 9539963457 |
+| 103 | Maanas  | Villa House          | Kozhikode      |       NULL |
+| 104 | Minhaj  | Vallyaveetil House   | Malappuram     |       NULL |
+| 105 | Minhaj  | Dreams House         | Malappuram     | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad        | 7854328521 |
++-----+---------+----------------------+----------------+------------+
+7 rows in set (0.00 sec)
+
+->Product table
+---------------
+ 
+mysql> INSERT INTO product VALUES(301,"DARK CHOCALATE",1);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO product VALUES(323,"PINPOINT PEN",10);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> INSERT INTO product VALUES(335,"BASUMATHI RISE",90);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO product VALUES(332,"KABSA KIT",150);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO product VALUES(339,"AASHIRVAD AATTA 1KG ",80);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO product VALUES(432,"DIARYMILK SILK ",135);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO product VALUES(447,"LAYS CHIPS",5);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO product VALUES(467,"DINNER SET",999);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO product VALUES(487,"ONION",99);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO product VALUES(643,"FOG BODYSPRAY",250);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO product VALUES(743,"CHILLY POWDER",145);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO product VALUES(987,"COCONUT OIL 1 LTR",180);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO product VALUES(456,"7UP 1 LTR",90);
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> select * from product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   150 |
+| 335 | BASUMATHI RISE       |    90 |
+| 339 | AASHIRVAD AATTA 1KG  |    80 |
+| 432 | DIARYMILK SILK       |   135 |
+| 447 | LAYS CHIPS           |     5 |
+| 456 | 7UP 1 LTR            |    90 |
+| 467 | DINNER SET           |   999 |
+| 487 | ONION                |    99 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   145 |
+| 987 | COCONUT OIL 1 LTR    |   180 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+->invoice_master table
+----------------------
+
+INSERT INTO invoice_master VALUES(1002,100,"2023-03-22");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> INSERT INTO invoice_master VALUES(1232,102,"2023-02-12");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_master VALUES(1176,100,"2023-04-23");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO invoice_master VALUES(1236,104,"2023-01-02");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_master VALUES(1790,100,"2023-01-25");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_master VALUES(1320,103,"2023-02-19");
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> select * from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1232 |     102 | 2023-02-12 |
+|   1236 |     104 | 2023-01-02 |
+|   1320 |     103 | 2023-02-19 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+6 rows in set (0.00 sec)
+
+->invoice_item table
+--------------------
+
+INSERT INTO invoice_item VALUES(1002,301,2);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1002,332,4);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1002,456,1);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1176,487,8);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1232,301,50);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1236,339,3);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1320,987,2);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1320,643,1);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1790,643,1);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO invoice_item VALUES(1790,432,2);
+Query OK, 1 row affected (0.06 sec)
+
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |        8 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1320 |  987 |        2 |
+|   1320 |  643 |        1 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+10 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+b)DML COMMANDS- UPDATE
+1) 
+
+mysql> select * from product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   150 |
+| 335 | BASUMATHI RISE       |    90 |
+| 339 | AASHIRVAD AATTA 1KG  |    80 |
+| 432 | DIARYMILK SILK       |   135 |
+| 447 | LAYS CHIPS           |     5 |
+| 456 | 7UP 1 LTR            |    90 |
+| 467 | DINNER SET           |   999 |
+| 487 | ONION                |    99 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   145 |
+| 987 | COCONUT OIL 1 LTR    |   180 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+--Update the price of a particular product.
+
+mysql>  UPDATE product SET price=100 WHERE PID=447;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   150 |
+| 335 | BASUMATHI RISE       |    90 |
+| 339 | AASHIRVAD AATTA 1KG  |    80 |
+| 432 | DIARYMILK SILK       |   135 |
+| 447 | LAYS CHIPS           |   100 |
+| 456 | 7UP 1 LTR            |    90 |
+| 467 | DINNER SET           |   999 |
+| 487 | ONION                |    99 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   145 |
+| 987 | COCONUT OIL 1 LTR    |   180 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+
+2)
+
+mysql> select * from customer;
++-----+---------+----------------------+----------------+------------+
+| id  | name    | address              | city           | ph_no      |
++-----+---------+----------------------+----------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad     | 9025487910 |
+| 101 | Karthik | Kannanthodi House    | Perinthalmanna |       NULL |
+| 102 | Vyshnav | Karthika House       | perinthalmanna | 9539963457 |
+| 103 | Maanas  | Villa House          | Kozhikode      |       NULL |
+| 104 | Minhaj  | Vallyaveetil House   | Malappuram     |       NULL |
+| 105 | Minhaj  | Dreams House         | Malappuram     | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad        | 7854328521 |
++-----+---------+----------------------+----------------+------------+
+7 rows in set (0.00 sec)
+
+--Change the name of city ‘Perinthalmanna’ to ‘Kozhikode’ in the customer table. 
+
+mysql> UPDATE customer SET city='Kozhikode' WHERE CITY='perinthalmanna';
+Query OK, 2 rows affected (0.04 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from customer;
++-----+---------+----------------------+------------+------------+
+| id  | name    | address              | city       | ph_no      |
++-----+---------+----------------------+------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad | 9025487910 |
+| 101 | Karthik | Kannanthodi House    | Kozhikode  |       NULL |
+| 102 | Vyshnav | Karthika House       | Kozhikode  | 9539963457 |
+| 103 | Maanas  | Villa House          | Kozhikode  |       NULL |
+| 104 | Minhaj  | Vallyaveetil House   | Malappuram |       NULL |
+| 105 | Minhaj  | Dreams House         | Malappuram | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad    | 7854328521 |
++-----+---------+----------------------+------------+------------+
+7 rows in set (0.00 sec)
+
+3)
+
+mysql> select * from product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   150 |
+| 335 | BASUMATHI RISE       |    90 |
+| 339 | AASHIRVAD AATTA 1KG  |    80 |
+| 432 | DIARYMILK SILK       |   135 |
+| 447 | LAYS CHIPS           |   100 |
+| 456 | 7UP 1 LTR            |    90 |
+| 467 | DINNER SET           |   999 |
+| 487 | ONION                |    99 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   145 |
+| 987 | COCONUT OIL 1 LTR    |   180 |
++-----+----------------------+-------+
+13 rows in set (0.01 sec)
+
+--Update all prices with 2% of its original price. 
+
+mysql> UPDATE product SET price=price-(price*2/100);
+Query OK, 11 rows affected (0.05 sec)
+Rows matched: 13  Changed: 11  Warnings: 0
+
+mysql> select * from product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.01 sec)
+
+4)
+
+mysql> select * from customer;
++-----+---------+----------------------+------------+------------+
+| id  | name    | address              | city       | ph_no      |
++-----+---------+----------------------+------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad | 9025487910 |
+| 101 | Karthik | Kannanthodi House    | Kozhikode  |       NULL |
+| 102 | Vyshnav | Karthika House       | Kozhikode  | 9539963457 |
+| 103 | Maanas  | Villa House          | Kozhikode  |       NULL |
+| 104 | Minhaj  | Vallyaveetil House   | Malappuram |       NULL |
+| 105 | Minhaj  | Dreams House         | Malappuram | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad    | 7854328521 |
++-----+---------+----------------------+------------+------------+
+7 rows in set (0.00 sec)
+
+--Change the address, city, phone number of a particular customer. 
+
+mysql> UPDATE customer SET address='Green villa',CITY='kallanthode',ph_no=9532147457 WHERE ID=104;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 101 | Karthik | Kannanthodi House    | Kozhikode   |       NULL |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 103 | Maanas  | Villa House          | Kozhikode   |       NULL |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+5)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |        8 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1320 |  987 |        2 |
+|   1320 |  643 |        1 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+10 rows in set (0.00 sec)
+
+--Change the quantity of a purchased product of inv_id ‘1176’
+
+mysql> UPDATE invoice_item SET quantity=15 WHERE INV_ID=1176 AND pid=487;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |       15 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1320 |  987 |        2 |
+|   1320 |  643 |        1 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+10 rows in set (0.00 sec)
+
+
+
