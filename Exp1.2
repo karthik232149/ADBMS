@@ -587,7 +587,7 @@ mysql> select * from invoice_item;
 
 4)
 
-mysql> select * from customer;
+mysql> select * from Customer;
 +-----+---------+----------------------+-------------+------------+
 | id  | name    | address              | city        | ph_no      |
 +-----+---------+----------------------+-------------+------------+
@@ -603,10 +603,10 @@ mysql> select * from customer;
 
 -- Delete details of employees who does not have phone number. 
 
-mysql> DELETE FROM customer WHERE ph_no IS NULL;
+mysql> DELETE FROM Customer WHERE ph_no IS NULL;
 Query OK, 2 rows affected (0.05 sec)
 
-mysql> select * from customer;
+mysql> select * from Customer;
 +-----+---------+----------------------+-------------+------------+
 | id  | name    | address              | city        | ph_no      |
 +-----+---------+----------------------+-------------+------------+
