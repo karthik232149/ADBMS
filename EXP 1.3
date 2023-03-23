@@ -1,0 +1,195 @@
+Exp 1.3 - TCL & DCL Commands
+----------------------------
+
+a)TCL Commands
+
+1.Commit
+mysql>  SET AUTOCOMMIT=OFF;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from EMPLOYEE;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
++------+--------------+--------------+------+--------------+
+4 rows in set (0.00 sec)
+mysql> INSERT INTO EMPLOYEE values(5,"Maanas","Kozhikode",2000,232135342589);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from EMPLOYEE;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
++------+--------------+--------------+------+--------------+
+5 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------
+
+2.Rollback
+mysql> INSERT INTO EMPLOYEE values(6,"Vishnu","Kochi",2000,232167324769);
+Query OK, 1 row affected (0.00 sec)
+
+
+mysql> select * from EMPLOYEE;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
+|    6 | Vishnu       | Kochi        | 2000 | 232167324769 |
++------+--------------+--------------+------+--------------+
+6 rows in set (0.00 sec)
+mysql>  rollback;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select * from EMPLOYEE;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
++------+--------------+--------------+------+--------------+
+5 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------
+
+
+3.Savepoint
+
+mysql> select * from EMPLOYEE;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
++------+--------------+--------------+------+--------------+
+5 rows in set (0.00 sec)
+
+
+mysql>  INSERT INTO EMPLOYEE values(6,"Aswin","Kollam",1999,123456232160);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  savepoint emp1;
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> INSERT INTO EMPLOYEE values(7,"Vishnu","Kochi",2000,345267235460);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  savepoint emp2;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEE values(8,"Akshay","Alappuzha",2001,567267235467);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  savepoint emp3;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from EMPLOYEE;
+
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
+|    6 | Aswin        | Kollam       | 1999 | 123456232160 |
+|    7 | Vishnu       | Kochi        | 2000 | 345267235460 |
+|    8 | Akshay       | Alappuzha    | 2001 | 567267235467 |
++------+--------------+--------------+------+--------------+
+8 rows in set (0.01 sec)
+
+ROLLBACK TO emp2;
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql>  select * from EMPLOYEE;
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
+|    6 | Aswin        | Kollam       | 1999 | 123456232160 |
+|    7 | Vishnu       | Kochi        | 2000 | 345267235460 |
++------+--------------+--------------+------+--------------+
+7 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+b)DCL Command
+
+Create two users user1, user2
+
+1.GRANT
+
+->Give insert and select privilege to user 1 on customer table in the invoice database.
+->Give update and delete privilege to user 2 on all tables in the invoice database.
+
+mysql> CREATE USER 'kichu1'@'localhost' IDENTIFIED BY 'password1';
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE USER 'kich2'@'localhost' IDENTIFIED BY 'password2';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> Select user from mysql.user;
++------------------+
+| user             |
++------------------+
+| abc              |
+| debian-sys-maint |
+| karthik          |
+| kich2            |
+| kichu1           |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+8 rows in set (0.00 sec)
+
+mysql>GRANT INSERT,SELECT ON Customer TO 'kichu1'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT DELETE,UPDATE  ON INVOICE.* TO 'kich2'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+------------------------------------------------------------------------------------------------
+2.REVOKE
+
+->Remove delete privilege of user 2.
+
+REVOKE DELETE ON INVOICE.* from 'kich2'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+
+  
+
