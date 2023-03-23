@@ -1,42 +1,57 @@
 EXPERIMENT 1.2 DML COMMANDS 
- a) 1.Insert values in EMPLOYEE table.
-DMmysql> insert into PERSON values(1,'KARTHIK','MALAPPURAM',2001,456965432457),(2,'HARIKRISHNAN','MANNARKKAD',2001,562069842356),(3,'MINHAJ','MANJERI',1999,789324456245),(4,'VYSHNAV','ANGADIPPURAM',2000,674559563457);
-Query OK, 4 rows affected (0.04 sec)
-Records: 4  Duplicates: 0  Warnings: 0
 
-mysql> SELECT * FROM PERSON;
-+------+--------------+--------------+------+--------------+
-| ssn  | name         | city         | dob  | aadhar_no    |
-+------+--------------+--------------+------+--------------+
-|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
-|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
-|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
-|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
-+------+--------------+--------------+------+--------------+
+
+a) DML COMMANDS-INSERT
+   ...................
+
+1.Insert values in EMPLOYEE table.
+
+mysql> INSERT INTO EMPLOYEE VALUES(12345,"Maanas","Kozhikode",2001,234523453);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO EMPLOYEE VALUES(12346,"Aswin","Delhi",2000,875638239);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO EMPLOYEE VALUES(12347,"Vishnu","Bangalore",2001,878673456);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO EMPLOYEE VALUES(12347,"Minhaj","Malappuram",1999,567329876);
+Query OK, 1 row affected (0.06 sec)
+ 
+ mysql> SELECT * FROM EMPLOYEE;
++-------+--------+------------+------+-----------+
+| SSN   | Name   | city       | dob  | aadhar_no |
++-------+--------+------------+------+-----------+
+| 12345 | Maanas | Kozhikode  | 2001 | 234523453 |
+| 12346 | Aswin  | Delhi      | 2000 | 875638239 |
+| 12347 | Vishnu | Bangalore  | 2001 | 878673456 |
+| 12347 | Minhaj | Malappuram | 1999 | 567329876 |
++-------+--------+------------+------+-----------+
 4 rows in set (0.00 sec)
-
-
+--------------------------------------------------------------------------
 
 2.Insert values in STUDENT table.
-mysql> ALTER TABLE PERSON modify aadhar_no bigint;
-Query OK, 0 rows affected (0.82 sec)
-Records: 0  Duplicates: 0  Warnings: 0
 
-mysql>  insert into STUDENT values(1,'karthik',21,'kannanthodi House','m'),(2,'harikrishnan',21,'sundhara bhavanam House','m'),(3,'Vyshnav',22,'karthika House','m'),(4,'Aliya',22,'mohabath manzil  House','f');
-Query OK, 4 rows affected (0.06 sec)
-Records: 4  Duplicates: 0  Warnings: 0
+mysql> INSERT INTO STUDENT  VALUES(12341,"Maanas","21","Palakkunnummal House","m");
+Query OK, 1 row affected (0.04 sec)
 
-mysql> SELECT * FROM STUDENT;
-+---------+--------------+------+-------------------------+--------+
-| roll_no | name         | age  | address                 | gender |
-+---------+--------------+------+-------------------------+--------+
-|       1 | karthik      |   21 | kannanthodi House       | m      |
-|       2 | harikrishnan |   21 | sundhara bhavanam House | m      |
-|       3 | Vyshnav      |   22 | karthika House          | m      |
-|       4 | Aliya        |   22 | mohabath manzil  House  | f      |
-+---------+--------------+------+-------------------------+--------+
+mysql> INSERT INTO STUDENT  VALUES(12342,"Karthik","21","Dreams House","m");Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO STUDENT  VALUES(12343,"Aswin","21","Dreamsvilla House","m");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from STUDENT;
++---------+---------+------+----------------------+--------+
+| Roll_No | Name    | age  | Address              | Gender |
++---------+---------+------+----------------------+--------+
+|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
+|   12342 | Karthik |   21 | Dreams House         | m      |
+|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
+|   12344 | Vishnu  |   21 | Chembra House        | m      |
++---------+---------+------+----------------------+--------+
 4 rows in set (0.00 sec)
 
+------------------------------------------------------------------------------------
 
 3.Insert values in INVOICE database. 
 
@@ -46,507 +61,131 @@ You can turn off this feature to get a quicker startup with -A
 
 Database changed
 
-->Customer table
-----------------
+->CUSTOMER TABLE
+--------------
 
-INSERT INTO customer  VALUES(100,"Hari","Kurupputhodyil House","Mannarkkad",9025487910);
+mysql> INSERT INTO CUSTOMER  VALUES(100,"Maanas","Palakkunnummal House","9020112197","Kozhikode");
 Query OK, 1 row affected (0.06 sec)
- 
-mysql> INSERT INTO customer(id,name,address,city)  VALUES(101,"Karthik","Kannanthodi House","Perinthalmanna");
-Query OK, 1 row affected (0.05 sec)
- 
-mysql> INSERT INTO customer  VALUES(102,"Vyshnav","Karthika House","perinthalmanna",9539963457);
-Query OK, 1 row affected (0.05 sec)
- 
-mysql> INSERT INTO customer(id,name,address,city)  VALUES(103,"Maanas","Villa House","Kozhikode");
-Query OK, 1 row affected (0.04 sec)
- 
-mysql> INSERT INTO customer(id,name,address,city)  VALUES(104,"Minhaj","Vallyaveetil House","Malappuram");
-Query OK, 1 row affected (0.04 sec)
- 
-mysql> INSERT INTO customer  VALUES(105,"Minhaj","Dreams House","Malappuram",8086909478);
-Query OK, 1 row affected (0.05 sec)
- 
-mysql>  VALUES(106,"Vishnu" INSERT INTO customer,"Vishnuvilasam House","Wayanad",7854328521);
+
+mysql> INSERT INTO CUSTOMER(ID,NAME,ADDRESS,CITY)  VALUES(101,"Aswin","Dreams villa House","Kozhikode");
 Query OK, 1 row affected (0.05 sec)
 
+mysql> INSERT INTO CUSTOMER  VALUES(102,"Vishnu","Chembra House","9539963367","Kozhikode");
+Query OK, 1 row affected (0.05 sec)
 
-mysql> select * from customer;
-+-----+---------+----------------------+----------------+------------+
-| id  | name    | address              | city           | ph_no      |
-+-----+---------+----------------------+----------------+------------+
-| 100 | Hari    | Kurupputhodyil House | Mannarkkad     | 9025487910 |
-| 101 | Karthik | Kannanthodi House    | Perinthalmanna |       NULL |
-| 102 | Vyshnav | Karthika House       | perinthalmanna | 9539963457 |
-| 103 | Maanas  | Villa House          | Kozhikode      |       NULL |
-| 104 | Minhaj  | Vallyaveetil House   | Malappuram     |       NULL |
-| 105 | Minhaj  | Dreams House         | Malappuram     | 8086909478 |
-| 106 | Vishnu  | Vishnuvilasam House  | Wayanad        | 7854328521 |
-+-----+---------+----------------------+----------------+------------+
+mysql> INSERT INTO CUSTOMER(ID,NAME,ADDRESS,CITY)  VALUES(103,"Karthik","Villa House","Malappuram");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO CUSTOMER(ID,NAME,ADDRESS,CITY)  VALUES(104,"Hari","Dreams House","Palakkad");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO CUSTOMER  VALUES(105,"Minhaj","Vallyaveetil House","8086909939","Malappuram");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO CUSTOMER  VALUES(106,"Vyshnav","Sreenilyam House","7854328521","Wayanad");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from CUSTOMER;
++-----+---------+----------------------+------------+------------+
+| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
++-----+---------+----------------------+------------+------------+
+| 100 | Maanas  | Palakkunnummal House | 9020112197 | Kozhikode  |
+| 101 | Aswin   | Dreams villa House   |       NULL | Kozhikode  |
+| 102 | Vishnu  | Chembra House        | 9539963367 | Kozhikode  |
+| 103 | Karthik | Villa House          |       NULL | Malappuram |
+| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
+| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
+| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
++-----+---------+----------------------+------------+------------+
 7 rows in set (0.00 sec)
 
-->Product table
----------------
- 
-mysql> INSERT INTO product VALUES(301,"DARK CHOCALATE",1);
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+->PRODUCT TABLE
+ --------------
+mysql> INSERT INTO PRODUCT VALUES(301,"DARK CHOCALATE",1);
 Query OK, 1 row affected (0.03 sec)
 
-mysql> INSERT INTO product VALUES(323,"PINPOINT PEN",10);
+mysql> INSERT INTO PRODUCT VALUES(323,"PINPOINT PEN",10);
 Query OK, 1 row affected (0.11 sec)
 
-mysql> INSERT INTO product VALUES(335,"BASUMATHI RISE",90);
+mysql> INSERT INTO PRODUCT VALUES(335,"BASUMATHI RISE",90);
 Query OK, 1 row affected (0.05 sec)
 
-mysql> INSERT INTO product VALUES(332,"KABSA KIT",150);
+mysql> INSERT INTO PRODUCT VALUES(332,"KABSA KIT",150);
 Query OK, 1 row affected (0.05 sec)
 
-mysql> INSERT INTO product VALUES(339,"AASHIRVAD AATTA 1KG ",80);
+mysql> INSERT INTO PRODUCT VALUES(339,"AASHIRVAD AATTA 1KG ",80);
 Query OK, 1 row affected (0.04 sec)
 
-mysql> INSERT INTO product VALUES(432,"DIARYMILK SILK ",135);
+mysql> INSERT INTO PRODUCT VALUES(432,"DIARYMILK SILK ",135);
 Query OK, 1 row affected (0.05 sec)
 
-mysql> INSERT INTO product VALUES(447,"LAYS CHIPS",5);
+mysql> INSERT INTO PRODUCT VALUES(447,"LAYS CHIPS",5);
 Query OK, 1 row affected (0.05 sec)
 
-mysql> INSERT INTO product VALUES(467,"DINNER SET",999);
+mysql> INSERT INTO PRODUCT VALUES(467,"DINNER SET",999);
 Query OK, 1 row affected (0.05 sec)
 
-mysql> INSERT INTO product VALUES(487,"ONION",99);
+mysql> INSERT INTO PRODUCT VALUES(487,"ONION",99);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO product VALUES(643,"FOG BODYSPRAY",250);
+mysql> INSERT INTO PRODUCT VALUES(643,"FOG BODYSPRAY",250);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO product VALUES(743,"CHILLY POWDER",145);
+mysql> INSERT INTO PRODUCT VALUES(743,"CHILLY POWDER",145);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO product VALUES(987,"COCONUT OIL 1 LTR",180);
+mysql> INSERT INTO PRODUCT VALUES(987,"COCONUT OIL 1 LTR",180);
 Query OK, 1 row affected (0.04 sec)
 
-mysql> INSERT INTO product VALUES(456,"7UP 1 LTR",90);
-Query OK, 1 row affected (0.05 sec)
+mysql> INSERT INTO PRODUCT VALUES(456,"7UP 1 LTR",90);
+Query OK, 1 row affected (0.06 sec)
 
+mysql> SELECT * FROM PRODUCT;
++------+----------------------+-------+
+| P_ID | P_NAME               | PRICE |
++------+----------------------+-------+
+|  301 | DARK CHOCALATE       |     1 |
+|  323 | PINPOINT PEN         |    10 |
+|  332 | KABSA KIT            |   150 |
+|  335 | BASUMATHI RISE       |    90 |
+|  339 | AASHIRVAD AATTA 1KG  |    80 |
+|  432 | DIARYMILK SILK       |   135 |
+|  447 | LAYS CHIPS           |     5 |
+|  456 | 7UP 1 LTR            |    90 |
+|  467 | DINNER SET           |   999 |
+|  487 | ONION                |    99 |
+|  643 | FOG BODYSPRAY        |   250 |
+|  743 | CHILLY POWDER        |   145 |
+|  987 | COCONUT OIL 1 LTR    |   180 |
++------+----------------------+-------+
+13 rows in set (0.00 sec
 
-mysql> select * from product;
-+-----+----------------------+-------+
-| pid | pname                | price |
-+-----+----------------------+-------+
-| 301 | DARK CHOCALATE       |     1 |
-| 323 | PINPOINT PEN         |    10 |
-| 332 | KABSA KIT            |   150 |
-| 335 | BASUMATHI RISE       |    90 |
-| 339 | AASHIRVAD AATTA 1KG  |    80 |
-| 432 | DIARYMILK SILK       |   135 |
-| 447 | LAYS CHIPS           |     5 |
-| 456 | 7UP 1 LTR            |    90 |
-| 467 | DINNER SET           |   999 |
-| 487 | ONION                |    99 |
-                                                          c) DML COMMAND- DELETE
-                                                            ....................
+->INVOICE MASTER TABLE
+  ------------------
 
-
-1. Delete the record of customer id ‘101’.
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
-
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1320 |  103 | 2023-02-19 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-........................................................................................................................................................
-
-| 643 | FOG BODYSPRAY        |   250 |
-| 743 | CHILLY POWDER        |   145 |
-| 987 | COCONUT OIL 1 LTR    |   180 |
-+-----+----------------------+-------+
-13 rows in set (0.00 sec)
-
-->invoice_master table
-----------------------
-
-mysql>INSERT INTO invoice_master VALUES(1002,100,"2023-03-22");
+mysql> INSERT INTO INVOICE_MASTER VALUES(1002,100,"2023-03-22");
 Query OK, 1 row affected (0.08 sec)
 
-mysql> INSERT INTO invoice_master VALUES(1232,102,"2023-02-12");
+mysql> INSERT INTO INVOICE_MASTER VALUES(1232,102,"2023-02-12");
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO invoice_master VALUES(1176,100,"2023-04-23");
+mysql> INSERT INTO INVOICE_MASTER VALUES(1176,100,"2023-04-23");
 Query OK, 1 row affected (0.07 sec)
 
-                                                          c) DML COMMAND- DELETE
-                                                            ....................
+mysql> INSERT INTO INVOICE_MASTER VALUES(1236,104,"2023-01-02");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO INVOICE_MASTER VALUES(1790,100,"2023-01-25");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO INVOICE_MASTER VALUES(1320,103,"2023-02-19");
+Query OK, 1 row affected (0.05 sec)
 
 
-1. Delete the record of customer id ‘101’.
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
-
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
+mysql> SELECT * FROM INVOICE_MASTER;
 +--------+------+------------+
 | INV_ID | ID   | INV_DATE   |
 +--------+------+------------+
@@ -557,1114 +196,45 @@ mysql> select * from INVOICE_MASTER;
 |   1320 |  103 | 2023-02-19 |
 |   1790 |  100 | 2023-01-25 |
 +--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-........................................................................................................................................................
-
-mysql> INSERT INTO invoice_master VALUES(1236,104,"2023-01-02");
-Query OK, 1 row affected (0.06 sec)
-
-mysql> INSERT INTO invoice_master VALUES(1790,100,"2023-01-25");
-Query OK, 1 row affected (0.06 sec)
-
-mysql> INSERT INTO invoice_master VALUES(1320,103,"2023-02-19");
-Query OK, 1 row affected (0.05 sec)
-
-
-mysql> select * from invoice_master;
-+--------+---------+------------+
-| inv_id | cust_id | inv_date   |
-+--------+---------+------------+
-|   1002 |     100 | 2023-03-22 |
-|   1176 |     100 | 2023-04-23 |
-|   1232 |     102 | 2023-02-12 |
-|   1236 |     104 | 2023-01-02 |
-|   1320 |     103 | 2023-02-19 |
-|   1790 |     100 | 2023-01-25 |
-+--------+---------+------------+
 6 rows in set (0.00 sec)
 
-->invoice_item table
---------------------
 
-INSERT INTO invoice_item VALUES(1002,301,2);
+->INVOICE MASTER TABLE
+  --------------------
+
+mysql> INSERT INTO INVOICE_ITEM VALUES(1002,301,2);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1002,332,4);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1002,332,4);
 Query OK, 1 row affected (0.04 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1002,456,1);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1002,456,1);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1176,487,8);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1176,487,8);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1232,301,50);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1232,301,50);
 Query OK, 1 row affected (0.06 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1236,339,3);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1236,339,3);
 Query OK, 1 row affected (0.14 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1320,987,2);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1320,987,2);
 Query OK, 1 row affected (0.05 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1320,643,1);
-                                                          c) DML COMMAND- DELETE
-                                                            ....................
-
-
-1. Delete the record of customer id ‘101’.
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
-
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1320 |  103 | 2023-02-19 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-........................................................................................................................................................
-
+mysql> INSERT INTO INVOICE_ITEM VALUES(1320,643,1);
 Query OK, 1 row affected (0.04 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1790,643,1);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1790,643,1);
 Query OK, 1 row affected (0.04 sec)
 
-mysql> INSERT INTO invoice_item VALUES(1790,432,2);
+mysql> INSERT INTO INVOICE_ITEM VALUES(1790,432,2);
 Query OK, 1 row affected (0.06 sec)
 
-
-mysql> select * from invoice_item;
-+--------+------+----------+
-| inv_id | pid  | quantity |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-                                                          c) DML COMMAND- DELETE
-                                                            ....................
-
-
-1. Delete the record of customer id ‘101’.
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
-
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
+mysql> SELECT * FROM INVOICE_ITEM;
 +--------+------+----------+
 | INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1320 |  103 | 2023-02-19 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-                                                          c) DML COMMAND- DELETE
-                                                            ....................
-
-
-1. Delete the record of customer id ‘101’.
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
-
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1320 |  103 | 2023-02-19 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-........................................................................................................................................................
-
-........................................................................................................................................................
-
-|   1002 |  456 |        1 |
-|   1176 |  487 |        8 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
--------------------------------------------------------------------------------------------------------------------------------------------------------
-
-b)DML COMMANDS- UPDATE
-1) 
-
-mysql> select * from product;
-+-----+----------------------+-------+
-| pid | pname                | price |
-+-----+----------------------+-------+
-| 301 | DARK CHOCALATE       |     1 |
-| 323 | PINPOINT PEN         |    10 |
-| 332 | KABSA KIT            |   150 |
-| 335 | BASUMATHI RISE       |    90 |
-| 339 | AASHIRVAD AATTA 1KG  |    80 |
-| 432 | DIARYMILK SILK       |   135 |
-| 447 | LAYS CHIPS           |     5 |
-| 456 | 7UP 1 LTR            |    90 |
-| 467 | DINNER SET           |   999 |
-| 487 | ONION                |    99 |
-| 643 | FOG BODYSPRAY        |   250 |
-| 743 | CHILLY POWDER        |   145 |
-| 987 | COCONUT OIL 1 LTR    |   180 |
-+-----+----------------------+-------+
-13 rows in set (0.00 sec)
-
---Update the price of a particular product.
-
-mysql>  UPDATE product SET price=100 WHERE PID=447;
-Query OK, 1 row affected (0.08 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> select * from product;
-+-----+----------------------+-------+
-| pid | pname                | price |
-+-----+----------------------+-------+
-| 301 | DARK CHOCALATE       |     1 |
-| 323 | PINPOINT PEN         |    10 |
-| 332 | KABSA KIT            |   150 |
-| 335 | BASUMATHI RISE       |    90 |
-| 339 | AASHIRVAD AATTA 1KG  |    80 |
-| 432 | DIARYMILK SILK       |   135 |
-| 447 | LAYS CHIPS           |   100 |
-| 456 | 7UP 1 LTR            |    90 |
-| 467 | DINNER SET           |   999 |
-| 487 | ONION                |    99 |
-                                                          c) DML COMMAND- DELETE
-                                                            ....................
-
-
-1. Delete the record of customer id ‘101’.
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
-
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1320 |  103 | 2023-02-19 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-........................................................................................................................................................
-
-| 643 | FOG BODYSPRAY        |   250 |
-| 743 | CHILLY POWDER        |   145 |
-| 987 | COCONUT OIL 1 LTR    |   180 |
-+-----+----------------------+-------+
-13 rows in set (0.00 sec)
-
-
-2)
-
-mysql> select * from customer;
-+-----+---------+----------------------+----------------+------------+
-| id  | name    | address              | city           | ph_no      |
-+-----+---------+----------------------+----------------+------------+
-| 100 | Hari    | Kurupputhodyil House | Mannarkkad     | 9025487910 |
-| 101 | Karthik | Kannanthodi House    | Perinthalmanna |       NULL |
-| 102 | Vyshnav | Karthika House       | perinthalmanna | 9539963457 |
-| 103 | Maanas  | Villa House          | Kozhikode      |       NULL |
-| 104 | Minhaj  | Vallyaveetil House   | Malappuram     |       NULL |
-| 105 | Minhaj  | Dreams House         | Malappuram     | 8086909478 |
-| 106 | Vishnu  | Vishnuvilasam House  | Wayanad        | 7854328521 |
-+-----+---------+----------------------+----------------+------------+
-7 rows in set (0.00 sec)
-
---Change the name of city ‘Perinthalmanna’ to ‘Kozhikode’ in the customer table. 
-
-mysql> UPDATE customer SET city='Kozhikode' WHERE CITY='perinthalmanna';
-Query OK, 2 rows affected (0.04 sec)
-Rows matched: 2  Changed: 2  Warnings: 0
-
-mysql> select * from customer;
-+-----+---------+----------------------+------------+------------+
-| id  | name    | address              | city       | ph_no      |
-+-----+---------+----------------------+------------+------------+
-| 100 | Hari    | Kurupputhodyil House | Mannarkkad | 9025487910 |
-| 101 | Karthik | Kannanthodi House    | Kozhikode  |       NULL |
-| 102 | Vyshnav | Karthika House       | Kozhikode  | 9539963457 |
-| 103 | Maanas  | Villa House          | Kozhikode  |       NULL |
-| 104 | Minhaj  | Vallyaveetil House   | Malappuram |       NULL |
-| 105 | Minhaj  | Dreams House         | Malappuram | 8086909478 |
-| 106 | Vishnu  | Vishnuvilasam House  | Wayanad    | 7854328521 |
-+-----+---------+----------------------+------------+------------+
-7 rows in set (0.00 sec)
-
-3)
-
-mysql> select * from product;
-+-----+----------------------+-------+
-| pid | pname                | price |
-+-----+----------------------+-------+
-| 301 | DARK CHOCALATE       |     1 |
-| 323 | PINPOINT PEN         |    10 |
-| 332 | KABSA KIT            |   150 |
-| 335 | BASUMATHI RISE       |    90 |
-| 339 | AASHIRVAD AATTA 1KG  |    80 |
-| 432 | DIARYMILK SILK       |   135 |
-| 447 | LAYS CHIPS           |   100 |
-| 456 | 7UP 1 LTR            |    90 |
-| 467 | DINNER SET           |   999 |
-| 487 | ONION                |    99 |
-| 643 | FOG BODYSPRAY        |   250 |
-| 743 | CHILLY POWDER        |   145 |
-| 987 | COCONUT OIL 1 LTR    |   180 |
-+-----+----------------------+-------+
-13 rows in set (0.01 sec)
-
---Update all prices with 2% of its original price. 
-
-mysql> UPDATE product SET price=price-(price*2/100);
-Query OK, 11 rows affected (0.05 sec)
-Rows matched: 13  Changed: 11  Warnings: 0
-
-mysql> select * from product;
-+-----+----------------------+-------+
-| pid | pname                | price |
-+-----+----------------------+-------+
-| 301 | DARK CHOCALATE       |     1 |
-| 323 | PINPOINT PEN         |    10 |
-| 332 | KABSA KIT            |   147 |
-| 335 | BASUMATHI RISE       |    88 |
-| 339 | AASHIRVAD AATTA 1KG  |    78 |
-| 432 | DIARYMILK SILK       |   132 |
-| 447 | LAYS CHIPS           |    98 |
-| 456 | 7UP 1 LTR            |    88 |
-| 467 | DINNER SET           |   979 |
-| 487 | ONION                |    97 |
-| 643 | FOG BODYSPRAY        |   245 |
-| 743 | CHILLY POWDER        |   142 |
-| 987 | COCONUT OIL 1 LTR    |   176 |
-+-----+----------------------+-------+
-13 rows in set (0.01 sec)
-
-4)
-
-mysql> select * from customer;
-+-----+---------+----------------------+------------+------------+
-| id  | name    | address              | city       | ph_no      |
-+-----+---------+----------------------+------------+------------+
-| 100 | Hari    | Kurupputhodyil House | Mannarkkad | 9025487910 |
-| 101 | Karthik | Kannanthodi House    | Kozhikode  |       NULL |
-| 102 | Vyshnav | Karthika House       | Kozhikode  | 9539963457 |
-| 103 | Maanas  | Villa House          | Kozhikode  |       NULL |
-| 104 | Minhaj  | Vallyaveetil House   | Malappuram |       NULL |
-| 105 | Minhaj  | Dreams House         | Malappuram | 8086909478 |
-| 106 | Vishnu  | Vishnuvilasam House  | Wayanad    | 7854328521 |
-+-----+---------+----------------------+------------+------------+
-7 rows in set (0.00 sec)
-
---Change the address, city, phone number of a particular customer. 
-
-mysql> UPDATE customer SET address='Green villa',CITY='kallanthode',ph_no=9532147457 WHERE ID=104;
-Query OK, 1 row affected (0.05 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
-
-mysql> select * from customer;
-+-----+---------+----------------------+-------------+------------+
-| id  | name    | address              | city        | ph_no      |
-+-----+---------+----------------------+-------------+------------+
-| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
-| 101 | Karthik | Kannanthodi House    | Kozhikode   |       NULL |
-| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
-| 103 | Maanas  | Villa House          | Kozhikode   |       NULL |
-| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
-| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
-| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
-+-----+---------+----------------------+-------------+------------+
-7 rows in set (0.00 sec)
-
-5)
-
-mysql> select * from invoice_item;
-+--------+------+----------+
-| inv_id | pid  | quantity |
 +--------+------+----------+
 |   1002 |  301 |        2 |
 |   1002 |  332 |        4 |
@@ -1679,19 +249,193 @@ mysql> select * from invoice_item;
 +--------+------+----------+
 10 rows in set (0.00 sec)
 
---Change the quantity of a purchased product of inv_id ‘1176’
+mysql> 
 
-mysql> UPDATE invoice_item SET quantity=15 WHERE INV_ID=1176 AND pid=487;
-Query OK, 1 row affected (0.06 sec)
+--------------------------------------------------------------------
 
-mysql> select * from invoice_item;
+
+                                                                              b)DML COMMANDS- UPDATE 
+                                                                              -----------------------
+                                                                              
+            
+1. Update the price of a particular product. 
+
+mysql> SELECT * FROM PRODUCT;
++------+----------------------+-------+
+| P_ID | P_NAME               | PRICE |
++------+----------------------+-------+
+|  301 | DARK CHOCALATE       |     1 |
+|  323 | PINPOINT PEN         |    10 |
+|  332 | KABSA KIT            |   150 |
+|  335 | BASUMATHI RISE       |    90 |
+|  339 | AASHIRVAD AATTA 1KG  |    80 |
+|  432 | DIARYMILK SILK       |   135 |
+|  447 | LAYS CHIPS           |     5 |
+|  456 | 7UP 1 LTR            |    90 |
+|  467 | DINNER SET           |   999 |
+|  487 | ONION                |    99 |
+|  643 | FOG BODYSPRAY        |   250 |
+|  743 | CHILLY POWDER        |   145 |
+|  987 | COCONUT OIL 1 LTR    |   180 |
++------+----------------------+-------+
+           
+mysql> UPDATE PRODUCT set PRICE=170 WHERE P_ID=332;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+mysql> select * from PRODUCT;
++------+----------------------+-------+
+| P_ID | P_NAME               | PRICE |
++------+----------------------+-------+
+|  301 | DARK CHOCALATE       |     1 |
+|  323 | PINPOINT PEN         |    10 |
+|  332 | KABSA KIT            |   170 |
+|  335 | BASUMATHI RISE       |    90 |
+|  339 | AASHIRVAD AATTA 1KG  |    80 |
+|  432 | DIARYMILK SILK       |   135 |
+|  447 | LAYS CHIPS           |     5 |
+|  456 | 7UP 1 LTR            |    90 |
+|  467 | DINNER SET           |   999 |
+|  487 | ONION                |    99 |
+|  643 | FOG BODYSPRAY        |   250 |
+|  743 | CHILLY POWDER        |   145 |
+|  987 | COCONUT OIL 1 LTR    |   180 |
++------+----------------------+-------+
+13 rows in set (0.00 sec)
+..........................................................
+
+
+2. Change the name of city ‘kozhikode’ to ‘calicut’ in the customer table.
+
+mysql> select * from CUSTOMER;
++-----+---------+----------------------+------------+------------+
+| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
++-----+---------+----------------------+------------+------------+
+| 100 | Maanas  | Palakkunnummal House | 9020112197 | Kozhikode  |
+| 101 | Aswin   | Dreams villa House   |       NULL | Kozhikode  |
+| 102 | Vishnu  | Chembra House        | 9539963367 | Kozhikode  |
+| 103 | Karthik | Villa House          |       NULL | Malappuram |
+| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
+| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
+| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
++-----+---------+----------------------+------------+------------+
+
+mysql> UPDATE CUSTOMER set CITY="Calicut" WHERE CITY="Kozhikode";
+Query OK, 3 rows affected (0.05 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+
+mysql> select * from CUSTOMER;
++-----+---------+----------------------+------------+------------+
+| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
++-----+---------+----------------------+------------+------------+
+| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
+| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
+| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
+| 103 | Karthik | Villa House          |       NULL | Malappuram |
+| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
+| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
+| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
++-----+---------+----------------------+------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> 
+ ................................................................
+ 
+ 
+3. Update all prices with 2% of its original price. 
+
+mysql> select * from PRODUCT;
++------+----------------------+-------+
+| P_ID | P_NAME               | PRICE |
++------+----------------------+-------+
+|  301 | DARK CHOCALATE       |     1 |
+|  323 | PINPOINT PEN         |    10 |
+|  332 | KABSA KIT            |   170 |
+|  335 | BASUMATHI RISE       |    90 |
+|  339 | AASHIRVAD AATTA 1KG  |    80 |
+|  432 | DIARYMILK SILK       |   135 |
+|  447 | LAYS CHIPS           |     5 |
+|  456 | 7UP 1 LTR            |    90 |
+|  467 | DINNER SET           |   999 |
+|  487 | ONION                |    99 |
+|  643 | FOG BODYSPRAY        |   250 |
+|  743 | CHILLY POWDER        |   145 |
+|  987 | COCONUT OIL 1 LTR    |   180 |
++------+----------------------+-------+
+13 rows in set (0.00 sec)
+
+mysql>UPDATE PRODUCT set PRICE=PRICE+(PRICE*2/100);
+Query OK, 10 rows affected (0.00 sec)
+Rows matched: 13  Changed: 10  Warnings: 0
+
+
+mysql> select * from PRODUCT;
++------+----------------------+-------+
+| P_ID | P_NAME               | PRICE |
++------+----------------------+-------+
+|  301 | DARK CHOCALATE       |     1 |
+|  323 | PINPOINT PEN         |    10 |
+|  332 | KABSA KIT            |   173 |
+|  335 | BASUMATHI RISE       |    92 |
+|  339 | AASHIRVAD AATTA 1KG  |    82 |
+|  432 | DIARYMILK SILK       |   138 |
+|  447 | LAYS CHIPS           |     5 |
+|  456 | 7UP 1 LTR            |    92 |
+|  467 | DINNER SET           |  1019 |
+|  487 | ONION                |   101 |
+|  643 | FOG BODYSPRAY        |   255 |
+|  743 | CHILLY POWDER        |   148 |
+|  987 | COCONUT OIL 1 LTR    |   184 |
++------+----------------------+-------+
+13 rows in set (0.00 sec)
+..................................................................
+4. Change the address, city, phone number of a particular customer.
+
+
+mysql> select * from CUSTOMER;
++-----+---------+----------------------+------------+------------+
+| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
++-----+---------+----------------------+------------+------------+
+| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
+| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
+| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
+| 103 | Karthik | Villa House          |       NULL | Malappuram |
+| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
+| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
+| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
++-----+---------+----------------------+------------+------------+ 
+
+mysql> UPDATE CUSTOMER SET ADDRESS="Minhaj villa",PH_NO=9843562798,CITY="EDAVANNA" WHERE ID=105;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from CUSTOMER;
++-----+---------+----------------------+------------+------------+
+| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
++-----+---------+----------------------+------------+------------+
+| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
+| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
+| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
+| 103 | Karthik | Villa House          |       NULL | Malappuram |
+| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
+| 105 | Minhaj  | Minhaj villa         | 9843562798 | EDAVANNA   |
+| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
++-----+---------+----------------------+------------+------------+
+7 rows in set (0.00 sec)
+....................................................................
+
+5. Change the quantity of a purchased product of inv_id ‘1176’
+
+mysql> SELECT * FROM INVOICE_ITEM;
 +--------+------+----------+
-| inv_id | pid  | quantity |
+| INV_ID | P_ID | QUANTITY |
 +--------+------+----------+
 |   1002 |  301 |        2 |
 |   1002 |  332 |        4 |
 |   1002 |  456 |        1 |
-|   1176 |  487 |       15 |
+|   1176 |  487 |        8 |
 |   1232 |  301 |       50 |
 |   1236 |  339 |        3 |
 |   1320 |  987 |        2 |
@@ -1702,8 +446,33 @@ mysql> select * from invoice_item;
 10 rows in set (0.00 sec)
 
 
-  c) DML COMMAND- DELETE
-    ....................
+
+mysql> UPDATE INVOICE_ITEM SET  QUANTITY =5 WHERE INV_ID=1176;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from INVOICE_ITEM;
++--------+------+----------+
+| INV_ID | P_ID | QUANTITY |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |        5 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1320 |  987 |        2 |
+|   1320 |  643 |        1 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+10 rows in set (0.00 sec)
+
+mysql> 
+.............................................................................
+
+                                                           c) DML COMMAND- DELETE
+                                                            ....................
 
 
 1. Delete the record of customer id ‘101’.
@@ -1738,177 +507,5 @@ mysql> select * from CUSTOMER;
 6 rows in set (0.00 sec)
 
 mysql> 
-................................................................................................................................................
-
-
-2. Delete all purchase details of items its quantity less than 2.
-
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1002 |  456 |        1 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1320 |  643 |        1 |
-|   1790 |  643 |        1 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-10 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM INVOICE_ITEM WHERE QUANTITY<2;
-Query OK, 3 rows affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> 
-
-.............................................................................................................................................
-
-3. Delete the purchase details of product ‘DARK Chocalate’ in the in_id ‘1002’.
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-7 rows in set (0.00 sec)
-
-mysql> DELETE FROM INVOICE_ITEM WHERE INV_ID=1002 AND P_ID=301;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_ITEM;
-+--------+------+----------+
-| INV_ID | P_ID | QUANTITY |
-+--------+------+----------+
-|   1002 |  332 |        4 |
-|   1176 |  487 |        5 |
-|   1232 |  301 |       50 |
-|   1236 |  339 |        3 |
-|   1320 |  987 |        2 |
-|   1790 |  432 |        2 |
-+--------+------+----------+
-6 rows in set (0.00 sec)
-
-mysql> 
-
-........................................................................................................................................................
-4. Delete details of employees who does not have phone number. 
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-6 rows in set (0.00 sec)
-
-
-mysql> DELETE FROM CUSTOMER  WHERE PH_NO is null;
-Query OK, 2 rows affected (0.00 sec)
-
-mysql> select * from CUSTOMER;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
-4 rows in set (0.00 sec)
-
-mysql> 
-
- 
-........................................................................................................................................................
- 5. Delete all records from STUDENT table. 
-
-
-mysql> select * from STUDENT;
-+---------+---------+------+----------------------+--------+
-| Roll_No | Name    | age  | Address              | Gender |
-+---------+---------+------+----------------------+--------+
-|   12341 | Maanas  |   21 | Palakkunnummal House | m      |
-|   12342 | Karthik |   21 | Dreams House         | m      |
-|   12343 | Aswin   |   21 | Dreamsvilla House    | m      |
-|   12344 | Vishnu  |   21 | Chembra House        | m      |
-+---------+---------+------+----------------------+--------+
-4 rows in set (0.00 sec)
-
-mysql> DELETE FROM STUDENT;
-Query OK, 4 rows affected (0.01 sec)
-
-mysql> select * from STUDENT;
-Empty set (0.01 sec)
-
-mysql> 
-
-
-
-........................................................................................................................................................
-6. Delete Invoice details of a particular customer. 
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1320 |  103 | 2023-02-19 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-
-mysql> DELETE FROM INVOICE_MASTER  WHERE ID=103;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from INVOICE_MASTER;
-+--------+------+------------+
-| INV_ID | ID   | INV_DATE   |
-+--------+------+------------+
-|   1002 |  100 | 2023-03-22 |
-|   1176 |  100 | 2023-04-23 |
-|   1232 |  102 | 2023-02-12 |
-|   1236 |  104 | 2023-01-02 |
-|   1790 |  100 | 2023-01-25 |
-+--------+------+------------+
-5 rows in set (0.00 sec)
-
-mysql> 
-
-
-........................................................................................................................................................
-
+.......................................................................
 
