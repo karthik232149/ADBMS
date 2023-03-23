@@ -471,41 +471,203 @@ mysql> select * from invoice_item;
 mysql> 
 .............................................................................
 
-                                                           c) DML COMMAND- DELETE
-                                                            ....................
+c) DML COMMAND- DELETE
+   --------------------  
+1)
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |       15 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1320 |  987 |        2 |
+|   1320 |  643 |        1 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+10 rows in set (0.00 sec)
+
+--Delete the record of customer id ‘1320’. 
+
+mysql> DELETE FROM invoice_item WHERE inv_id=1320;
+Query OK, 2 rows affected (0.05 sec)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |       15 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+8 rows in set (0.00 sec)
+2)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1002 |  456 |        1 |
+|   1176 |  487 |       15 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1790 |  643 |        1 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+8 rows in set (0.00 sec)
+.......................................................................
 
 
-1. Delete the record of customer id ‘101’.
+--Delete all purchase details of items its quantity less than 2.
 
-mysql> select * from Customer;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 101 | Aswin   | Dreams villa House   |       NULL | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+  
+mysql> DELETE FROM invoice_item WHERE quantity<2;
+Query OK, 2 rows affected (0.04 sec)
 
-mysql> DELETE FROM CUSTOMER WHERE ID=101;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> select * from Customer;
-+-----+---------+----------------------+------------+------------+
-| ID  | NAME    | ADDRESS              | PH_NO      | CITY       |
-+-----+---------+----------------------+------------+------------+
-| 100 | Maanas  | Palakkunnummal House | 9020112197 | Calicut    |
-| 102 | Vishnu  | Chembra House        | 9539963367 | Calicut    |
-| 103 | Karthik | Villa House          |       NULL | Malappuram |
-| 104 | Hari    | Dreams House         |       NULL | Palakkad   |
-| 105 | Minhaj  | Vallyaveetil House   | 8086909939 | Malappuram |
-| 106 | Vyshnav | Sreenilyam House     | 7854328521 | Wayanad    |
-+-----+---------+----------------------+------------+------------+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1176 |  487 |       15 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
 6 rows in set (0.00 sec)
 
-mysql> 
-.......................................................................
+****************************************************************************
+
+3)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1176 |  487 |       15 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+6 rows in set (0.00 sec)
+
+--Delete the purchase details of product ‘Onion’ in the in_id ‘1176’. 
+
+mysql> DELETE FROM invoice_item  WHERE inv_id=1176 AND pid=487;
+Query OK, 1 row affected (0.04 sec)
+
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1232 |  301 |       50 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+***************************************************************************
+
+
+4)
+
+mysql> select * from customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 101 | Karthik | Kannanthodi House    | Kozhikode   |       NULL |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 103 | Maanas  | Villa House          | Kozhikode   |       NULL |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+-- Delete details of employees who does not have phone number. 
+
+mysql> DELETE FROM customer WHERE ph_no IS NULL;
+Query OK, 2 rows affected (0.05 sec)
+
+mysql> select * from customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
++-----+---------+----------------------+-------------+------------+
+5 rows in set (0.00 sec)
+*************************************************************************
+
+5)
+
+mysql> select * from STUDENT;
++---------+---------+------+-----------+--------+
+| roll_no | name    | age  | address   | gender |
++---------+---------+------+-----------+--------+
+|       1 | Hari    |   21 | ABC House | m      |
+|       2 | Karthik |   21 | EFG House | m      |
+|       3 | Vyshnav |   22 | HIJ House | m      |
+|       4 | Aliya   |   22 | KIJ House | f      |
++---------+---------+------+-----------+--------+
+4 rows in set (0.00 sec)
+
+--Delete all records from STUDENT table. 
+
+mysql> DELETE FROM STUDENT;
+Query OK, 8 rows affected (0.06 sec)
+
+mysql> select * from STUDENT;
+Empty set (0.00 sec)
+
+***************************************************************************
+6)
+
+mysql> select * from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1232 |     102 | 2023-02-12 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+5 rows in set (0.00 sec)
+
+--Delete Invoice details of a particular customer. 
+
+mysql> DELETE FROM invoice_master  WHERE cust_id=102;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.00 sec)
 
