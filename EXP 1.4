@@ -1,0 +1,186 @@
+Experiment No: 1.4 ACCESSING DATABASE:  (SELECT, Filtering using WHERE, HAVING,  ORDER BY Clauses)
+--------------------------------------------------------------------------------------------------
+
+1.    List all customer details.
+--------------------------------
+
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
++-----+---------+----------------------+-------------+------------+
+5 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------------
+
+
+2.    List pname, price of all products.
+----------------------------------------
+
+mysql>  select pname,price from Product;
+
++----------------------+-------+
+| pname                | price |
++----------------------+-------+
+| DARK CHOCALATE       |     1 |
+| PINPOINT PEN         |    10 |
+| KABSA KIT            |   147 |
+| BASUMATHI RISE       |    88 |
+| AASHIRVAD AATTA 1KG  |    78 |
+| DIARYMILK SILK       |   132 |
+| LAYS CHIPS           |    98 |
+| 7UP 1 LTR            |    88 |
+| DINNER SET           |   979 |
+| ONION                |    97 |
+| FOG BODYSPRAY        |   245 |
+| CHILLY POWDER        |   142 |
+| COCONUT OIL 1 LTR    |   176 |
++----------------------+-------+
+13 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------
+
+
+3.    List all invoice items, avoid duplicates.
+-----------------------------------------------
+mysql>  SELECT * FROM invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.00 sec)
+
+mysql>  select distinct inv_id from invoice_item;
+
++--------+
+| inv_id |
++--------+
+|   1002 |
+|   1236 |
+|   1790 |
++--------+
+3 rows in set (0.03 sec)
+
+-----------------------------------------------------------------------------------------
+
+4.    List Product price between 50rs and 150rs
+------------------------------------------------
+
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 487 | ONION                |    97 |
+| 743 | CHILLY POWDER        |   142 |
++-----+----------------------+-------+
+8 rows in set (0.00 sec)
+
+-----------------------------------------
+
+5.    List the customer details who lives in 'wayanad','kozhikode'.
+----------------------------------------------------------
+
+mysql> SELECT * FROM Customer WHERE city IN('wayanad','kozhikode');
+
++-----+---------+---------------------+-----------+------------+
+| id  | name    | address             | city      | ph_no      |
++-----+---------+---------------------+-----------+------------+
+| 102 | Vyshnav | Karthika House      | Kozhikode | 9539963457 |
+| 106 | Vishnu  | Vishnuvilasam House | Wayanad   | 7854328521 |
++-----+---------+---------------------+-----------+------------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------
+
+6.    List the invoice details from ist January 2023 to 22th march 2023
+---------------------------------------------------------------------------
+mysql>  SELECT * FROM invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.00 sec)
+
+
+ select * from invoice_master where inv_date between '2023-01-01' and  '2023-03-22';
+
+
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+3 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------------
+
+7.    List the customer details who not live in ‘Calicut’.
+----------------------------------------------------------
+mysql>  SELECT * FROM Customer WHERE CITY!="Calicut" ;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
++-----+---------+----------------------+-------------+------------+
+5 rows in set (0.00 sec)
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
