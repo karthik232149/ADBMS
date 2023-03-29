@@ -1,0 +1,55 @@
+
+1.5 - ACCESSING DATABASE: (SUBQUERY)
+-----------------------------------------------------------------------------
+1)
+
+mysql> select  *FROM  Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+
+mysql> select *from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.00 sec)
+
+
+--List the customer names of invoice date 2nd january 2023.
+-------------------------------------------------------------
+
+mysql> select name from Customer where id in(select cust_id from invoice_master where inv_date='2023-01-02');
++--------+
+| name   |
++--------+
+| Minhaj |
++--------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
