@@ -28,6 +28,19 @@ mysql> select *from invoice_master;
 |   1790 |     100 | 2023-01-25 |
 +--------+---------+------------+
 4 rows in set (0.00 sec)
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+
 
 
 --List the customer names of invoice date 2nd january 2023.
@@ -92,6 +105,19 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
 +------+
 | name |
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+
 +------+
 | Hari |
 +------+
@@ -231,7 +257,80 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
-mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
+mysql> se
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from invoice_item;mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 
+mysql> select * from invoice_item;mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+
+|  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+|  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
+
+
+lect distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 +------+
 | name |
 +------+
@@ -246,7 +345,9 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 +------+
 | name |
 +------+
-| Hari |
+| Hari |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 +------+
 1 row in set (0.00 sec)
 
@@ -258,7 +359,9 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 | name |
 +------+
 | Hari |
-+------+
++------+mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 1 row in set (0.00 sec)
 
 +-----+----------------------+-------+
@@ -275,7 +378,9 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 | 301 | DARK CHOCALATE       |     1 |
 | 323 | PINPOINT PEN         |    10 |
 | 332 | KABSA KIT            |   147 |
-| 335 | BASUMATHI RISE       |    88 |
+| 335 | BASUMATHI RISE       |    88 |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 | 339 | AASHIRVAD AATTA 1KG  |    78 |
 | 432 | DIARYMILK SILK       |   132 |
 | 447 | LAYS CHIPS           |    98 |
@@ -290,7 +395,9 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 
 | 467 | DINNER SET           |   979 |
 | 487 | ONION                |    97 |
-| 643 | FOG BODYSPRAY        |   245 |
+| 643 | FOG BODYSPRAY        |   245 |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 | 743 | CHILLY POWDER        |   142 |
 | 987 | COCONUT OIL 1 LTR    |   176 |
 +-----+----------------------+-------+
@@ -305,7 +412,9 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 
 
 
-mysql> select * from invoice_item;
+mysql> select * from invoice_item;mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 
 +--------+------+----------+
 | inv_id | pid  | quantity |
@@ -319,7 +428,9 @@ mysql> select distinct name from Customer where id in (select cust_id from invoi
 
 +--------+------+----------+
 |   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
+|   1002 |  332 |        4 |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 |   1236 |  339 |        3 |
 |   1790 |  432 |        2 |
 +--------+------+----------+
@@ -391,7 +502,9 @@ mysql> select * from invoice_item;
 |   1236 |  339 |        3 |
 |   1790 |  432 |        2 |
 +--------+------+----------+
-4 rows in set (0.00 sec)
+4 rows in set (0.00 sec)mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 
 
 mysql> select * from invoice_master;
@@ -407,7 +520,9 @@ mysql> select * from invoice_master;
 
 
 --List the customer names who purchased the items ‘ONION’ and ‘FOG BODYSPRAY’.
-
+mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 mysql> select name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item where pid in (select pid from Product where pname='ONION' OR  (select pid from Product where pname ='FOG BODYSPRAY'))) );
 
 +--------+
@@ -421,7 +536,9 @@ mysql> select name from Customer where id in (select cust_id from invoice_master
 ************************************************************************************************************************
 
 6)
-
+mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 mysql> select * from Customer;
 +-----+---------+----------------------+-------------+------------+
 | id  | name    | address              | city        | ph_no      |
@@ -434,7 +551,9 @@ mysql> select * from Customer;
 | 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
 | 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
 +-----+---------+----------------------+-------------+------------+
-7 rows in set (0.00 sec)
+7 rows in set (0.00 sec)mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 
 
 mysql> select * from Product;
@@ -450,7 +569,9 @@ mysql> select * from Product;
 | 447 | LAYS CHIPS           |    98 |
 | 456 | 7UP 1 LTR            |    88 |
 | 467 | DINNER SET           |   979 |
-| 487 | ONION                |    97 |
+| 487 | ONION                |    97 |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 | 643 | FOG BODYSPRAY        |   245 |
 | 743 | CHILLY POWDER        |   142 |
 | 987 | COCONUT OIL 1 LTR    |   176 |
@@ -465,7 +586,9 @@ mysql> select * from invoice_item;
 |   1002 |  301 |        2 |
 |   1002 |  332 |        4 |
 |   1236 |  339 |        3 |
-|   1790 |  432 |        2 |
+|   1790 |  432 |        2 |mysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)
 +--------+------+----------+
 4 rows in set (0.00 sec)
 
@@ -484,7 +607,9 @@ mysql> select * from invoice_master;
 --Display the purchased product details of the customer ’Hari’.
 
 
-mysql> select * from Product where pid in(select pid from invoice_item where inv_id in(select inv_id from invoice_master where cust_id in(select id from Customer where name ='Hari')));
+mysql> select * from Product where pid in(select pid from invoice_item where inv_id in(select inv_id from invoice_master whermysql> insert into invoice_item values(1002,432,5);
+44
+Query OK, 1 row affected (0.04 sec)e cust_id in(select id from Customer where name ='Hari')));
 +-----+-----------------+-------+
 | pid | pname           | price |
 +-----+-----------------+-------+
@@ -520,8 +645,10 @@ mysql> select * from invoice_item;
 |   1002 |  332 |        4 |
 |   1236 |  339 |        3 |
 |   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
 +--------+------+----------+
-4 rows in set (0.00 sec)
+5 rows in set (0.00 sec)
+
 
 
 mysql> select * from invoice_master;
@@ -538,8 +665,20 @@ mysql> select * from invoice_master;
 
 --List the names of all customers who have purchased at least 1 products, make sure that no duplicate names in the result.
 
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
 
-mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>2));
 +------+
 | name |
 +------+
