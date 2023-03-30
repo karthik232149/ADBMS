@@ -40,16 +40,369 @@ mysql> select name from Customer where id in(select cust_id from invoice_master 
 | Minhaj |
 +--------+
 1 row in set (0.00 sec)
+---------------------------------------------------------------------------------------
 
 
+2)
+
+mysql> select * from Product;
+
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.01 sec)
 
 
+--List the product name and price of each invoice item.
+
+mysql> select pname,price from Product where pid in(select pid from invoice_item);
 
 
+mysql> select pname,price from Product where pid in(select pid from invoice_item);
++----------------------+-------+
+| pname                | price |
++----------------------+-------+
+| DARK CHOCALATE       |     1 |
+| KABSA KIT            |   147 |
+| AASHIRVAD AATTA 1KG  |    78 |
+| DIARYMILK SILK       |   132 |
++----------------------+-------+
+4 rows in set (0.02 sec)
+
+*************************************************************************************
+
+3)
 
 
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.00 sec)
 
 
+--List the product names, only include their purchased quantity more than 3.
+
+mysql> select pname from Product where pid in(select pid from invoice_item where quantity>3);
++-----------+
+| pname     |
++-----------+
+| KABSA KIT |
++-----------+
+1 row in set (0.02 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
 
 
+4)
+
+mysql> select * from Product;
+
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+
+mysql> select * from invoice_item;
+
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.00 sec)
+
+--Find the product that has no sale.
+
+mysql> select * from Product where pid not in(select pid from invoice_item);
++-----+-------------------+-------+
+| pid | pname             | price |
++-----+-------------------+-------+
+| 323 | PINPOINT PEN      |    10 |
+| 335 | BASUMATHI RISE    |    88 |
+| 447 | LAYS CHIPS        |    98 |
+| 456 | 7UP 1 LTR         |    88 |
+| 467 | DINNER SET        |   979 |
+| 487 | ONION             |    97 |
+| 643 | FOG BODYSPRAY     |   245 |
+| 743 | CHILLY POWDER     |   142 |
+| 987 | COCONUT OIL 1 LTR |   176 |
++-----+-------------------+-------+
+9 rows in set (0.02 sec)
+
+******************************************************************************************************************8
+
+5)
+
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.01 sec)
+
+
+--List the customer names who purchased the items ‘ONION’ and ‘FOG BODYSPRAY’.
+
+mysql> select name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item where pid in (select pid from Product where pname='ONION' OR  (select pid from Product where pname ='FOG BODYSPRAY'))) );
+
++--------+
+| name   |
++--------+
+| Hari   |
+| Minhaj |
++--------+
+2 rows in set (0.00 sec)
+
+************************************************************************************************************************
+
+6)
+
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.00 sec)
+
+--Display the purchased product details of the customer ’Hari’.
+
+
+mysql> select * from Product where pid in(select pid from invoice_item where inv_id in(select inv_id from invoice_master where cust_id in(select id from Customer where name ='Hari')));
++-----+-----------------+-------+
+| pid | pname           | price |
++-----+-----------------+-------+
+| 301 | DARK CHOCALATE  |     1 |
+| 332 | KABSA KIT       |   147 |
+| 432 | DIARYMILK SILK  |   132 |
++-----+-----------------+-------+
+3 rows in set (0.00 sec)
+
+*****************************************************************************************************
+
+7)
+
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
++--------+------+----------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from invoice_master;
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.01 sec)
+
+
+--List the names of all customers who have purchased at least 1 products, make sure that no duplicate names in the result.
+
+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
+
+//competed
 
