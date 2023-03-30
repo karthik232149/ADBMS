@@ -39,6 +39,14 @@ mysql> select name from Customer where id in(select cust_id from invoice_master 
 +--------+
 | Minhaj |
 +--------+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 1 row in set (0.00 sec)
 ---------------------------------------------------------------------------------------
 
@@ -48,6 +56,14 @@ mysql> select name from Customer where id in(select cust_id from invoice_master 
 mysql> select * from Product;
 
 +-----+----------------------+-------+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 | pid | pname                | price |
 +-----+----------------------+-------+
 | 301 | DARK CHOCALATE       |     1 |
@@ -57,6 +73,14 @@ mysql> select * from Product;
 | 339 | AASHIRVAD AATTA 1KG  |    78 |
 | 432 | DIARYMILK SILK       |   132 |
 | 447 | LAYS CHIPS           |    98 |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 | 456 | 7UP 1 LTR            |    88 |
 | 467 | DINNER SET           |   979 |
 | 487 | ONION                |    97 |
@@ -65,6 +89,14 @@ mysql> select * from Product;
 | 987 | COCONUT OIL 1 LTR    |   176 |
 +-----+----------------------+-------+
 13 rows in set (0.00 sec)
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 
 mysql> select * from invoice_item;
 +--------+------+----------+
@@ -74,6 +106,14 @@ mysql> select * from invoice_item;
 |   1002 |  332 |        4 |
 |   1236 |  339 |        3 |
 |   1790 |  432 |        2 |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 +--------+------+----------+
 4 rows in set (0.01 sec)
 
@@ -81,6 +121,14 @@ mysql> select * from invoice_item;
 --List the product name and price of each invoice item.
 
 mysql> select pname,price from Product where pid in(select pid from invoice_item);
+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
 
 
 mysql> select pname,price from Product where pid in(select pid from invoice_item);
@@ -91,6 +139,14 @@ mysql> select pname,price from Product where pid in(select pid from invoice_item
 | KABSA KIT            |   147 |
 | AASHIRVAD AATTA 1KG  |    78 |
 | DIARYMILK SILK       |   132 |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 +----------------------+-------+
 4 rows in set (0.02 sec)
 
@@ -115,6 +171,14 @@ mysql> select * from Product;
 | 487 | ONION                |    97 |
 | 643 | FOG BODYSPRAY        |   245 |
 | 743 | CHILLY POWDER        |   142 |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 | 987 | COCONUT OIL 1 LTR    |   176 |
 +-----+----------------------+-------+
 13 rows in set (0.00 sec)
@@ -132,26 +196,82 @@ mysql> select * from invoice_item;
 
 
 --List the product names, only include their purchased quantity more than 3.
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 
 mysql> select pname from Product where pid in(select pid from invoice_item where quantity>3);
 +-----------+
 | pname     |
 +-----------+
 | KABSA KIT |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 +-----------+
 1 row in set (0.02 sec)
 
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
 
 
 4)
 
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 mysql> select * from Product;
 
 mysql> select * from Product;
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 +-----+----------------------+-------+
 | pid | pname                | price |
 +-----+----------------------+-------+
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 | 301 | DARK CHOCALATE       |     1 |
 | 323 | PINPOINT PEN         |    10 |
 | 332 | KABSA KIT            |   147 |
@@ -160,6 +280,14 @@ mysql> select * from Product;
 | 432 | DIARYMILK SILK       |   132 |
 | 447 | LAYS CHIPS           |    98 |
 | 456 | 7UP 1 LTR            |    88 |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 | 467 | DINNER SET           |   979 |
 | 487 | ONION                |    97 |
 | 643 | FOG BODYSPRAY        |   245 |
@@ -167,12 +295,28 @@ mysql> select * from Product;
 | 987 | COCONUT OIL 1 LTR    |   176 |
 +-----+----------------------+-------+
 13 rows in set (0.00 sec)
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 
 
 mysql> select * from invoice_item;
 
 +--------+------+----------+
 | inv_id | pid  | quantity |
+mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
++------+
+| name |
++------+
+| Hari |
++------+
+1 row in set (0.00 sec)
+
 +--------+------+----------+
 |   1002 |  301 |        2 |
 |   1002 |  332 |        4 |
