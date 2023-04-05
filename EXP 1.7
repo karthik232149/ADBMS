@@ -1,0 +1,143 @@
+Experiment No - 1.7 Optimizing Database:(Group by,Aggregate Functions)
+
+1.List product name, price except soap on price order.
+
+
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+mysql> select pname,price from Product where pname!='ONION' order by price;
++----------------------+-------+
+| pname                | price |
++----------------------+-------+
+| DARK CHOCALATE       |     1 |
+| PINPOINT PEN         |    10 |
+| AASHIRVAD AATTA 1KG  |    78 |
+| BASUMATHI RISE       |    88 |
+| 7UP 1 LTR            |    88 |
+| LAYS CHIPS           |    98 |
+| DIARYMILK SILK       |   132 |
+| CHILLY POWDER        |   142 |
+| KABSA KIT            |   147 |
+| COCONUT OIL 1 LTR    |   176 |
+| FOG BODYSPRAY        |   245 |
+| DINNER SET           |   979 |
++----------------------+-------+
+12 rows in set (0.00 sec)
+
+****************************************************************************************************************************************
+2.Find minimum, maximum and average price of products.
+
+
+mysql> select min(price),max(price),avg(price) from Product;
++------------+------------+------------+
+| min(price) | max(price) | avg(price) |
++------------+------------+------------+
+|          1 |        979 |   175.4615 |
++------------+------------+------------+
+1 row in set (0.00 sec)
+
+******************************************************************************************************************************************
+3.
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+--Find number of customers in each city.
+
+mysql> select city,count(id) from Customer group by city;
++-------------+-----------+
+| city        | count(id) |
++-------------+-----------+
+| kallanthode |         1 |
+| Kozhikode   |         3 |
+| Malappuram  |         1 |
+| Mannarkkad  |         1 |
+| Wayanad     |         1 |
++-------------+-----------+
+5 rows in set (0.00 sec)
+********************************************************************************************************************
+
+4.
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+--Find number of customers in each city, only include city with more than 2 customers.
+
+
+mysql> select count(*),city from Customer group by city having count(*)>2;
++----------+-----------+
+| count(*) | city      |
++----------+-----------+
+|        3 | Kozhikode |
++----------+-----------+
+1 row in set (0.00 sec)
+
+***************************************************************************************************************************
+
+5.Show data as displayed ‘who, where’ Eg: ‘customer1 lives in Kochi’.
+
+mysql> select concat(name, " Lives in ", city) as cust_info from Customer;
++-----------------------------+
+| cust_info                   |
++-----------------------------+
+| Hari Lives in Mannarkkad    |
+| Vyshnav Lives in Kozhikode  |
+| Minhaj Lives in kallanthode |
+| Minhaj Lives in Malappuram  |
+| Vishnu Lives in Wayanad     |
+| mishub Lives in kozhikode   |
+| nihal Lives in kozhikode    |
++-----------------------------+
+7 rows in set (0.00 sec)
+
+// completed
+
+
+
+
+
+
+
+
+
+
+
