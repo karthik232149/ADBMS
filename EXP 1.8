@@ -25,5 +25,33 @@ mysql> select Customer.name,Product.pname,Product.price,invoice_master.inv_id,in
 | Hari | DIARYMILK SILK  |   132 |   1790 | 2023-01-25 |        2 |
 +------+-----------------+-------+--------+------------+----------+
 1 row in set (0.00 sec)
-**************************************************************************************************************************************************************************************
+***********************************************************************************************************************************************************
+
+3) Display the customer name, product name, invoice date of purchased item ‘DARK CHOCOLATE’.
+mysql> select Customer.name,Product.pname,invoice_master.inv_date from Customer INNER JOIN invoice_master on Customer.id=invoice_master.cust_id INNER JOIN invoice_item on invoice_master.inv_id=invoice_item.inv_id INNER JOIN Product on Product.pid=invoice_item.pid where pname='DARK CHOCALATE';
++------+----------------+------------+
+| name | pname          | inv_date   |
++------+----------------+------------+
+| Hari | DARK CHOCALATE | 2023-03-22 |
++------+----------------+------------+
+1 row in set (0.00 sec)
+*********************************************************************************************************************************************************
+4) Display all customer details and invoice details must include customer has not purchased items.
+select Customer.name,Product.pname,invoice_master.inv_id,invoice_master.inv_date FROM Customer LEFT JOIN invoice_master on  Customer.id=invoice_master.cust_id LEFT JOIN invoice_item on invoice_master.inv_id=invoice_item.inv_id LEFT JOIN Product on Product.pid=invoice_item.pid; 
++---------+----------------------+--------+------------+
+| name    | pname                | inv_id | inv_date   |
++---------+----------------------+--------+------------+
+| Hari    | DARK CHOCALATE       |   1002 | 2023-03-22 |
+| Hari    | KABSA KIT            |   1002 | 2023-03-22 |
+| Minhaj  | AASHIRVAD AATTA 1KG  |   1236 | 2023-01-02 |
+| Hari    | DIARYMILK SILK       |   1790 | 2023-01-25 |
+| Hari    | DIARYMILK SILK       |   1002 | 2023-03-22 |
+| Hari    | NULL                 |   1176 | 2023-04-23 |
+| Vyshnav | NULL                 |   NULL | NULL       |
+| Minhaj  | NULL                 |   NULL | NULL       |
+| Vishnu  | NULL                 |   NULL | NULL       |
+| mishub  | NULL                 |   NULL | NULL       |
+| nihal   | NULL                 |   NULL | NULL       |
++---------+----------------------+--------+------------+
+11 rows in set (0.00 sec)
 
