@@ -1,0 +1,29 @@
+EXPERIMENT NO: 1.8 OPTIMIZING DATABASE: (JOINS)
+--------------------------------------------------
+1.List the product name and quantity of invoice items.
+
+mysql>  select Product.pname,invoice_item.quantity from Product INNER JOIN invoice_item on Product.pid=invoice_item.pid;
++----------------------+----------+
+| pname                | quantity |
++----------------------+----------+
+| DARK CHOCALATE       |        2 |
+| KABSA KIT            |        4 |
+| AASHIRVAD AATTA 1KG  |        3 |
+| DIARYMILK SILK       |        2 |
+| DIARYMILK SILK       |        5 |
++----------------------+----------+
+5 rows in set (0.00 sec)
+
+***********************************************************************************************************************************
+
+2) Display invoice details of the transaction dated ’2023-01-25’.
+
+mysql> select Customer.name,Product.pname,Product.price,invoice_master.inv_id,invoice_master.inv_date,invoice_item.quantity from Customer INNER JOIN invoice_master on Customer.id=invoice_master.cust_id INNER JOIN invoice_item on invoice_master.inv_id=invoice_item.inv_id INNER JOIN Product on Product.pid=invoice_item.pid where inv_date='2023-01-25';
++------+-----------------+-------+--------+------------+----------+
+| name | pname           | price | inv_id | inv_date   | quantity |
++------+-----------------+-------+--------+------------+----------+
+| Hari | DIARYMILK SILK  |   132 |   1790 | 2023-01-25 |        2 |
++------+-----------------+-------+--------+------------+----------+
+1 row in set (0.00 sec)
+**************************************************************************************************************************************************************************************
+
