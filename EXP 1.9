@@ -1,0 +1,139 @@
+
+mysql> select * from Customer;
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+
+
+1.Display customer_id, city  who lives either in ‘CLT’ or in ‘MLRM’
+-----------------------------------------------------------------
+SELECT
+mysql> SELECT Id,CITY FROM Customer WHERE CITY="kozhikode" or CITY="malappuram";
++-----+------------+
+| Id  | CITY       |
++-----+------------+
+| 102 | Kozhikode  |
+| 105 | Malappuram |
+| 107 | kozhikode  |
+| 108 | kozhikode  |
++-----+------------+
+4 rows in set (0.00 sec)
+
+
+
+2.Display product details with an updated price amount(new price= old price+5rs)
+-------------------------------------------------------------------------
+
+SELECT
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     1 |
+| 323 | PINPOINT PEN         |    10 |
+| 332 | KABSA KIT            |   147 |
+| 335 | BASUMATHI RISE       |    88 |
+| 339 | AASHIRVAD AATTA 1KG  |    78 |
+| 432 | DIARYMILK SILK       |   132 |
+| 447 | LAYS CHIPS           |    98 |
+| 456 | 7UP 1 LTR            |    88 |
+| 467 | DINNER SET           |   979 |
+| 487 | ONION                |    97 |
+| 643 | FOG BODYSPRAY        |   245 |
+| 743 | CHILLY POWDER        |   142 |
+| 987 | COCONUT OIL 1 LTR    |   176 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+
+mysql> UPDATE Product SET PRICE=PRICE+5;
+Query OK, 13 rows affected (0.04 sec)
+Rows matched: 13  Changed: 13  Warnings: 0
+
+mysql> select * from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     6 |
+| 323 | PINPOINT PEN         |    15 |
+| 332 | KABSA KIT            |   152 |
+| 335 | BASUMATHI RISE       |    93 |
+| 339 | AASHIRVAD AATTA 1KG  |    83 |
+| 432 | DIARYMILK SILK       |   137 |
+| 447 | LAYS CHIPS           |   103 |
+| 456 | 7UP 1 LTR            |    93 |
+| 467 | DINNER SET           |   984 |
+| 487 | ONION                |   102 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   147 |
+| 987 | COCONUT OIL 1 LTR    |   181 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+3.Display customer details who doesn’t have phone number and lives in ‘kozhikode’ city (use logical operators)
+----------------------------------------------------------------------------------------------------------
+mysql> SELECT * FROM Customer WHERE PH_NO IS NULL AND CITY="kozhikode";
++-----+--------+----------------+-----------+-------+
+| id  | name   | address        | city      | ph_no |
++-----+--------+----------------+-----------+-------+
+| 107 | mishub | ramzaaan mahal | kozhikode | NULL  |
+| 108 | nihal  | eidul manzil   | kozhikode | NULL  |
++-----+--------+----------------+-----------+-------+
+2 rows in set (0.00 sec)
+
+4.List the product names if it finds any records in the invoice items table has quantity =3 (use special operators)
+--------------------------------------------------------------------------------------------------------------------------
+
+mysql> SELECT PNAME FROM Product WHERE PID IN(SELECT PID FROM invoice_item);
++----------------------+
+| PNAME                |
++----------------------+
+| DARK CHOCALATE       |
+| KABSA KIT            |
+| AASHIRVAD AATTA 1KG  |
+| DIARYMILK SILK       |
++----------------------+
+4 rows in set (0.01 sec)
+
+
+
+
+//COMPLETED
+
+
+
+
+
+
+
