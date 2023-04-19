@@ -17,6 +17,26 @@ mysql> select  *FROM  Customer;
 +-----+---------+----------------------+-------------+------------+
 7 rows in set (0.00 sec)
 
+mysql> select *from Product;
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     6 |
+| 323 | PINPOINT PEN         |    15 |
+| 332 | KABSA KIT            |   152 |
+| 335 | BASUMATHI RISE       |    93 |
+| 339 | AASHIRVAD AATTA 1KG  |    83 |
+| 432 | DIARYMILK SILK       |   137 |
+| 447 | LAYS CHIPS           |   103 |
+| 456 | 7UP 1 LTR            |    93 |
+| 467 | DINNER SET           |   984 |
+| 487 | ONION                |   102 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   147 |
+| 987 | COCONUT OIL 1 LTR    |   181 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
 
 mysql> select *from invoice_master;
 +--------+---------+------------+
@@ -28,18 +48,6 @@ mysql> select *from invoice_master;
 |   1790 |     100 | 2023-01-25 |
 +--------+---------+------------+
 4 rows in set (0.00 sec)
-mysql> select * from invoice_item;
-+--------+------+----------+
-| inv_id | pid  | quantity |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1236 |  339 |        3 |
-|   1790 |  432 |        2 |
-|   1002 |  432 |        5 |
-+--------+------+----------+
-5 rows in set (0.00 sec)
-
 
 mysql> select * from invoice_item;
 +--------+------+----------+
@@ -55,68 +63,98 @@ mysql> select * from invoice_item;
 
 
 
---List the customer names of invoice date 2nd january 2023.
+
+
+
+1)--List the customer names of invoice date 2nd january 2023.
 -------------------------------------------------------------
 
 mysql> select name from Customer where id in(select cust_id from invoice_master where inv_date='2023-01-02');
 +--------+
 | name   |
-mysql> select * from invoice_item;
-+--------+------+----------+
-| inv_id | pid  | quantity |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1236 |  339 |        3 |
-|   1790 |  432 |        2 |
-|   1002 |  432 |        5 |
-+--------+------+----------+
-5 rows in set (0.00 sec)
-
 +--------+
 | Minhaj |
 +--------+
-mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
+1 row in set (0.00 sec)
+2)List the product name and price of each invoice item.
+-------------------------------------------------------
+mysql> SELECT PNAME,PRICE FROM Product  WHERE PID IN(SELECT PID FROM invoice_item );
++----------------------+-------+
+| PNAME                | PRICE |
++----------------------+-------+
+| DARK CHOCALATE       |     6 |
+| KABSA KIT            |   152 |
+| AASHIRVAD AATTA 1KG  |    83 |
+| DIARYMILK SILK       |   137 |
++----------------------+-------+
+4 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------------------------------------
+3). List the product names, only include their purchased quantity more than 3.
+----------------------------------------------------------------------------
+
+
+
+mysql> SELECT PNAME FROM Product  WHERE PID IN(SELECT PID FROM invoice_item WHERE QUANTITY > 3);
++-----------------+
+| PNAME           |
++-----------------+
+| KABSA KIT       |
+| DIARYMILK SILK  |
++-----------------+
+2 rows in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------
+4).Find the product that has no sale.
+-------------------------------------
+
+mysql> SELECT PNAME FROM Product WHERE PID NOT IN (SELECT PID FROM invoice_item);
++-------------------+
+| PNAME             |
++-------------------+
+| PINPOINT PEN      |
+| BASUMATHI RISE    |
+| LAYS CHIPS        |
+| 7UP 1 LTR         |
+| DINNER SET        |
+| ONION             |
+| FOG BODYSPRAY     |
+| CHILLY POWDER     |
+| COCONUT OIL 1 LTR |
++-------------------+
+9 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+5.  List the customer names who purchased the items ‘ONION’ and ‘DIARYMILK SILK’.
+----------------------------------------------------------------------------------
+
+mysql>  SELECT NAME FROM Customer WHERE Id IN (SELECT cust_id FROM invoice_master WHERE inv_id IN (SELECT inv_id FROM invoice_item WHERE pid IN(SELECT pid FROM
+Product WHERE PNAME="DARK CHOCOLATE" OR PNAME="KABSA KIT")));
 +------+
-| name |
+| NAME |
 +------+
 | Hari |
-mysql> select * from invoice_item;
-+--------+------+----------+
-| inv_id | pid  | quantity |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1236 |  339 |        3 |
-|   1790 |  432 |        2 |
-|   1002 |  432 |        5 |
-+--------+------+----------+
-5 rows in set (0.00 sec)
-
 +------+
 1 row in set (0.00 sec)
 
-1 row in set (0.00 sec)
----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
+6)6.Display the purchased product details of the customer 
 
-mysql> select * from invoice_item;
-+--------+------+----------+
-| inv_id | pid  | quantity |
-+--------+------+----------+
-|   1002 |  301 |        2 |
-|   1002 |  332 |        4 |
-|   1236 |  339 |        3 |
-|   1790 |  432 |        2 |
-|   1002 |  432 |        5 |
-+--------+------+----------+
-5 rows in set (0.00 sec)
+mysql> select name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item where pid in (select pid from Product where pname='ONION' OR  (select pid from Product where pname ='FOG BODYSPRAY'))) );
++--------+
+| name   |
++--------+
+| Hari   |
+| Minhaj |
++--------+
+2 rows in set (0.00 sec)
 
 
-2)
 
-mysql> select * from Product;
 
-+-----+----------------------+-------+
+
+
+
 mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>1));
 mysql> select * from invoice_item;
 +--------+------+----------+
