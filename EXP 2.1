@@ -1,0 +1,108 @@
+  ***EXPERIMENT NO: 2.1 - PL/SQL PROGRAMS- STORED PROCEDURES***
+  -------------------------------------------------------------
+1.      Create a procedure to display all tables in the invoice database.
+-------------------------------------------------------------------------
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE VOICE() begin select * from Customer; select * from EMPLOYEE;
+
+mysql>select * from cust_view; select * from invoice_item; select * from invoice_maste
+r; select * from invoice_product; end//
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> call VOICE()
+    -> //
+
++-----+---------+----------------------+-------------+------------+
+| id  | name    | address              | city        | ph_no      |
++-----+---------+----------------------+-------------+------------+
+| 100 | Hari    | Kurupputhodyil House | Mannarkkad  | 9025487910 |
+| 102 | Vyshnav | Karthika House       | Kozhikode   | 9539963457 |
+| 104 | Minhaj  | Green villa          | kallanthode | 9532147457 |
+| 105 | Minhaj  | Dreams House         | Malappuram  | 8086909478 |
+| 106 | Vishnu  | Vishnuvilasam House  | Wayanad     | 7854328521 |
+| 107 | mishub  | ramzaaan mahal       | kozhikode   | NULL       |
+| 108 | nihal   | eidul manzil         | kozhikode   | NULL       |
++-----+---------+----------------------+-------------+------------+
+7 rows in set (0.00 sec)
+
++------+--------------+--------------+------+--------------+
+| ssn  | name         | city         | dob  | aadhar_no    |
++------+--------------+--------------+------+--------------+
+|    1 | KARTHIK      | MALAPPURAM   | 2001 | 456965432457 |
+|    2 | HARIKRISHNAN | MANNARKKAD   | 2001 | 562069842356 |
+|    3 | MINHAJ       | MANJERI      | 1999 | 789324456245 |
+|    4 | VYSHNAV      | ANGADIPPURAM | 2000 | 674559563457 |
+|    5 | Maanas       | Kozhikode    | 2000 | 232135342589 |
+|    6 | Aswin        | Kollam       | 1999 | 123456232160 |
+|    7 | Vishnu       | Kochi        | 2000 | 345267235460 |
++------+--------------+--------------+------+--------------+
+7 rows in set (0.00 sec)
+
+Empty set (0.00 sec)
+
++-----+----------------------+-------+
+| pid | pname                | price |
++-----+----------------------+-------+
+| 301 | DARK CHOCALATE       |     6 |
+| 323 | PINPOINT PEN         |    15 |
+| 332 | KABSA KIT            |   152 |
+| 335 | BASUMATHI RISE       |    93 |
+| 339 | AASHIRVAD AATTA 1KG  |    83 |
+| 432 | DIARYMILK SILK       |   137 |
+| 447 | LAYS CHIPS           |   103 |
+| 456 | 7UP 1 LTR            |    93 |
+| 467 | DINNER SET           |   984 |
+| 487 | ONION                |   102 |
+| 643 | FOG BODYSPRAY        |   250 |
+| 743 | CHILLY POWDER        |   147 |
+| 987 | COCONUT OIL 1 LTR    |   181 |
++-----+----------------------+-------+
+13 rows in set (0.00 sec)
+
+Empty set (0.00 sec)
+
++--------+
+| name   |
++--------+
+| Hari   |
+| Minhaj |
++--------+
+2 rows in set (0.01 sec)
+
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.01 sec)
+
++--------+---------+------------+
+| inv_id | cust_id | inv_date   |
++--------+---------+------------+
+|   1002 |     100 | 2023-03-22 |
+|   1176 |     100 | 2023-04-23 |
+|   1236 |     104 | 2023-01-02 |
+|   1790 |     100 | 2023-01-25 |
++--------+---------+------------+
+4 rows in set (0.01 sec)
+
++--------+--------+-----+----------+
+| name   | inv_id | pid | quantity |
++--------+--------+-----+----------+
+| Hari   |   1002 | 301 |        2 |
+| Hari   |   1002 | 332 |        4 |
+| Minhaj |   1236 | 339 |        3 |
+| Hari   |   1790 | 432 |        2 |
+| Hari   |   1002 | 432 |        5 |
++--------+--------+-----+----------+
+5 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+
+    
