@@ -149,11 +149,19 @@ mysql> select name from Customer where id in (select cust_id from invoice_master
 +--------+
 2 rows in set (0.00 sec)
 
-
-
-
-
-
+7)   List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
+---------------------------------------------------------------------------------------------------------
+mysql> SELECT * FROM invoice_item;
++--------+------+----------+
+| inv_id | pid  | quantity |
++--------+------+----------+
+|   1002 |  301 |        2 |
+|   1002 |  332 |        4 |
+|   1236 |  339 |        3 |
+|   1790 |  432 |        2 |
+|   1002 |  432 |        5 |
++--------+------+----------+
+5 rows in set (0.00 sec)
 
 mysql> select distinct name from Customer where id in (select cust_id from invoice_master where inv_id in (select inv_id from invoice_item group by inv_id having count(*)>2));
 +------+
