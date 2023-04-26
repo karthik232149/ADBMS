@@ -105,4 +105,73 @@ Query OK, 0 rows affected (0.01 sec)
 
 mysql> 
 
+*******************************************************************************************
+2.Create a procedure to find greatest of 3 numbers.
+
+mysql> delimiter **
+mysql>  create procedure in_greatest(a int,b int,c int)
+    -> begin
+    ->  if(a>b) and (a>c) then
+    -> select a as 'Greatest';
+    ->  elseif(b>a) and (b>c) then
+    -> select b as 'Greatest';
+    -> else
+    -> select c as 'Greatest';
+    -> end if;
+    -> end **
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> call in_greatest(-123,340,500)
+    -> **
++----------+
+| Greatest |
++----------+
+|      500 |
++----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+*********************************************************************************************************
+
+3.Create a procedure to display invoice details of a particular customer.
+------------------------------------------------------------------------
+
+
+
+mysql> delimiter //
+mysql> create procedure invdetail(a varchar(30))
+    -> Begin
+    -> select Customer.name,invoice_master.*,Product.pname,invoice_item.pid,invoice_item.quantity from invoice_item inner join invoice_master on invoice_master.inv_id=invoice_item.inv_id inner join Product on Product.pid=invoice_item.pid inner join Customer on Customer.id=invoice_master.cust_id where Customer.name=a;
+    -> end
+    -> //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call invdetail('Hari')
+    -> //
++------+--------+---------+------------+-----------------+------+----------+
+| name | inv_id | cust_id | inv_date   | pname           | pid  | quantity |
++------+--------+---------+------------+-----------------+------+----------+
+| Hari |   1002 |     100 | 2023-03-22 | DARK CHOCALATE  |  301 |        2 |
+| Hari |   1002 |     100 | 2023-03-22 | KABSA KIT       |  332 |        4 |
+| Hari |   1002 |     100 | 2023-03-22 | DIARYMILK SILK  |  432 |        5 |
+| Hari |   1790 |     100 | 2023-01-25 | DIARYMILK SILK  |  432 |        2 |
++------+--------+---------+------------+-----------------+------+----------+
+4 rows in set (0.02 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+//completed
+
+
+
+
+
+
+
+
+
+
+
+
     
