@@ -45,3 +45,4 @@ Assignment 4 - NoSQL- Retrieving data
 { "_id" : ObjectId("64817ad9342465193ed08492"), "name" : "karthik", "city" : "malappuram", "ph_no" : "8156866432", "age" : "21" }
 > 
 
+//VERIFIED
