@@ -1,0 +1,97 @@
+                                                            Assignment 6 - NoSQL – Administration
+                                                            **************************************
+
+
+
+
+1) Write a mongoDB query to create a user "CUSTOMER1" and grant the read role in the invoice database.
+-------------------------------------------------------------------------------------------------------
+
+> use admin
+switched to db admin
+
+db.createUser({user: "admin",pwd:"ktk",roles: [{ role: "read", db: "invoice" }]})
+Successfully added user: {
+	"user" : "admin",
+	"roles" : [
+		{
+			"role" : "read",
+			"db" : "invoice"
+		}
+	]
+
+  }
+-----------------------------------------------------------------------------------
+2) Write a MongoDB query to create the backup for the INVOICE database.
+------------------------------------------------------------------------
+
+ mongodump --db invoice
+2023-06-15T15:27:52.410+0530	writing invoice.Customer to dump/invoice/Customer.bson
+2023-06-15T15:27:52.410+0530	writing invoice.Product to dump/invoice/Product.bson
+2023-06-15T15:27:52.410+0530	writing invoice.customer to dump/invoice/customer.bson
+2023-06-15T15:27:52.410+0530	done dumping invoice.Customer (3 documents)
+2023-06-15T15:27:52.410+0530	done dumping invoice.Product (0 documents)
+2023-06-15T15:27:52.410+0530	done dumping invoice.customer (0 documents)
+2023-06-15T15:27:52.457+0530	writing invoice.product to dump/invoice/product.bson
+2023-06-15T15:27:52.459+0530	done dumping invoice.product (15 documents)
+ ------------------------------------------------------------------------
+
+3) Write  a mongoDB queryto restore a particular database or a collection.
+--------------------------------------------------------------------------
+
+> show dbs
+MySQL    0.000GB
+admin    0.000GB
+config   0.000GB
+invoice  0.000GB
+local    0.000GB
+mydb     0.000GB
+> 
+> 
+> use invoice
+switched to db invoice
+> db.dropDatabase()
+{ "dropped" : "invoice", "ok" : 1 }
+>  show dbs
+MySQL   0.000GB
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+mydb    0.000GB
+> 
+
+
+$ mongorestore --db invoice dump/invoice
+2023-06-15T15:31:29.242+0530	The --db and --collection flags are deprecated for this use-case; please use --nsInclude instead, i.e. with --nsInclude=${DATABASE}.${COLLECTION}
+2023-06-15T15:31:29.242+0530	building a list of collections to restore from dump/invoice dir
+2023-06-15T15:31:29.242+0530	reading metadata for invoice.Customer from dump/invoice/Customer.metadata.json
+2023-06-15T15:31:29.242+0530	reading metadata for invoice.Product from dump/invoice/Product.metadata.json
+2023-06-15T15:31:29.243+0530	reading metadata for invoice.customer from dump/invoice/customer.metadata.json
+2023-06-15T15:31:29.243+0530	reading metadata for invoice.product from dump/invoice/product.metadata.json
+2023-06-15T15:31:29.755+0530	restoring invoice.product from dump/invoice/product.bson
+2023-06-15T15:31:29.773+0530	finished restoring invoice.product (15 documents, 0 failures)
+2023-06-15T15:31:29.838+0530	restoring invoice.Customer from dump/invoice/Customer.bson
+2023-06-15T15:31:29.850+0530	finished restoring invoice.Customer (3 documents, 0 failures)
+2023-06-15T15:31:29.946+0530	restoring invoice.Product from dump/invoice/Product.bson
+2023-06-15T15:31:29.962+0530	finished restoring invoice.Product (0 documents, 0 failures)
+2023-06-15T15:31:30.064+0530	restoring invoice.customer from dump/invoice/customer.bson
+2023-06-15T15:31:30.080+0530	finished restoring invoice.customer (0 documents, 0 failures)
+2023-06-15T15:31:30.080+0530	no indexes to restore for collection invoice.Customer
+2023-06-15T15:31:30.080+0530	no indexes to restore for collection invoice.customer
+2023-06-15T15:31:30.080+0530	no indexes to restore for collection invoice.product
+2023-06-15T15:31:30.080+0530	no indexes to restore for collection invoice.Product
+2023-06-15T15:31:30.080+0530	18 document(s) restored successfully. 0 document(s) failed to restore.
+
+
+
+
+>  show dbs
+MySQL    0.000GB
+admin    0.000GB
+config   0.000GB
+invoice  0.000GB
+local    0.000GB
+mydb     0.000GB
+> 
+
+                                                                      ********
